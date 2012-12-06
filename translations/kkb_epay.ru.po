@@ -18,7 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with KKB Epay.  If not, see <http://www.gnu.org/licenses/>.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kkb_epay 7.x-1.x\n"
@@ -33,35 +32,35 @@ msgstr ""
 
 #: kkb_epay.module:95
 msgid "Proceed to payment"
-msgstr "Процесс оплаты"
+msgstr "Перейти к оплате"
 
 #: kkb_epay.module:118
 msgid "KKB Epay debugging mode is turned on. Payment is only possible with special bank cards."
-msgstr "KKB Epay в режиме отладки. Оплата возможно только со специальными 'банковскими картами'."
+msgstr "KKB Epay находит в режиме отладки. Оплата возможна только специальными картами."
 
 #: kkb_epay.module:130
 msgid "KKB Epay payments gateway configuration."
-msgstr "Конфигурация шлюза KKB Epay оплаты."
+msgstr "Конфигурация шлюза KKB Epay."
 
 #: kkb_epay.module:141
 msgid "Choose to send payments to a live gateway or a sandbox."
-msgstr "Выберите для отправки оплаты с прямого плюза или тестового сервера."
+msgstr "Переключение между тестовым и рабочим серверами."
 
 #: kkb_epay.module:152
 msgid "Check the existing or add a new private key."
-msgstr "Проверьте существующий или добавьте новый закрытый ключ."
+msgstr "Проверьте, что закрытый ключ существует, или добавьте новый."
 
 #: kkb_epay.module:163
 msgid "Save imported private key into configuration file."
-msgstr "Импортировать и соранить закрытый ключ в файле конфигурации."
+msgstr "Сохраните импортированный закрытый ключ в конфигурационном файле."
 
 #: kkb_epay.module:214
 msgid "Administer KKB Epay configuration"
-msgstr "Администрирование конфигурацию КKB Epay"
+msgstr "Настройка модуля КKB Epay"
 
 #: kkb_epay.module:215
 msgid "Manage private keys and payments debugging mode."
-msgstr "Управление закрытых ключей и платежей режиме отладки."
+msgstr "Управление закрытыми ключами и режимом отладки платежей."
 
 #: kkb_epay.module:129 kkb_epay.info:0 modules/kkb_epay_uc/kkb_epay_uc.module:33
 msgid "KKB Epay"
@@ -69,27 +68,27 @@ msgstr "KKB Epay"
 
 #: kkb_epay.module:140
 msgid "KKB Epay debugging mode"
-msgstr "KKB Epay в режиме отладки."
+msgstr "Режим отладки KKB Epay"
 
 #: kkb_epay.module:151;162
 msgid "KKB Epay private key configuration"
-msgstr "Конфигурация закрытого ключа KKB Epay"
+msgstr "Настройка закрытого ключа KKB Epay"
 
 #: kkb_epay.module:172;190
 msgid "Payment was successful"
-msgstr "Ваш платеж успешно проведен"
+msgstr "Ваш платеж успешно проведён"
 
 #: kkb_epay.module:181;198
 msgid "Payment failed"
-msgstr "Оплата не удалось"
+msgstr "Ошибка оплаты"
 
 #: (duplicate) kkb_epay.install:36
 msgid "OpenSSL extension"
-msgstr "Расширения OpenSSL"
+msgstr "Расширение OpenSSL"
 
 #: (duplicate) kkb_epay.install:37
 msgid "This module requires OpenSSL extension to secure transactions, but it was not found."
-msgstr "Модуль требует расширение OpenSSL для обеспечения безопасной транзакции, расширение отсутствует."
+msgstr "Для обеспечения безопасности платежей модулю требуется расширение OpenSSL, но оно не найдено."
 
 #: (duplicate) kkb_epay.install:49 ;60
 msgid "KKB Epay private key"
@@ -97,15 +96,15 @@ msgstr "Закрытый ключ KKB Epay"
 
 #: (duplicate) kkb_epay.install:50
 msgid "Private key loaded. Merchant ID is %id."
-msgstr "Закрытый ключ загружен. ID покупателя $id"
+msgstr "Закрытый ключ загружен. ID продавца — %id"
 
 #: (duplicate) kkb_epay.install:61
 msgid "Private key is not found. You will not be able to receive payments without a private key. You can <a href=\"@url\">configure it right now</a>."
-msgstr "Закрытый ключ не найден. Вы не сможете получать платежи без секретного ключа. Вы можете <a href=\"@url\">настроить его прямо сейчас</a>."
+msgstr "Закрытый ключ не найден. Вы не сможете принимать платежи без закрытого ключа. Вы можете <a href=\"@url\">настроить его прямо сейчас</a>."
 
 #: kkb_epay.info:0
 msgid "Processes payments with the KKB 'Epay' authorization server - https://epay.kkb.kz/."
-msgstr "Процессы платежей с сервером авторизации KKB 'Epay' - https://epay.kkb.kz/."
+msgstr "Обрабатывает платежи на сервере авторизации KKB 'Epay' - https://epay.kkb.kz/."
 
 #: kkb_epay.info:0
 msgid "Other"
@@ -113,39 +112,39 @@ msgstr "Другие"
 
 #: includes/billing.inc:51
 msgid "Private key could not be loaded. Message will not be signed."
-msgstr "Закрытый ключ не загружен. Сообщение не подписано."
+msgstr "Закрытый ключ не может быть загружен. Сообщение не подписано."
 
 #: includes/billing.inc:60
 msgid "There is a problem with the key, message was not signed. Check logs for details."
-msgstr "Существует проблема с ключом, сообщение не было подписано. Проверьте журнал для подробностей."
+msgstr "Возникла проблема с ключом, сообщение не было подписано. Подробности смотрите в логах."
 
 #: includes/billing.inc:89
 msgid "There is a problem with the certificate. Check logs for details."
-msgstr "Существует проблема с сертификатом. Проверьте журналы для подробностей."
+msgstr "Возникла проблема с сертификатор. Подробности смотрите в логах."
 
 #: includes/callbacks.inc:34
 msgid "<strong>Thank you, you payment was successfully accepted.</strong>"
-msgstr "<strong>Спасибо, Ваш платеж успешно принят.</strong>"
+msgstr "<strong>Спасибо, платёж проведён успешно.</strong>"
 
 #: includes/callbacks.inc:39;59
 msgid "Back to front page."
-msgstr "На главную"
+msgstr "На главную."
 
 #: includes/callbacks.inc:54
 msgid "<strong>Unfortunately your payment was not completed.</strong>"
-msgstr "<strong>К сожалению, ваш платеж не проведен.</strong>"
+msgstr "<strong>К сожалению, платёж не был закончен.</strong>"
 
 #: includes/kkb_epay.admin.inc:34
 msgid "Put KKB Epay module into debugging mode"
-msgstr "Перевести КKB Epay модуль в режим отладки."
+msgstr "Перевести модуль КKB Epay в режим отладки"
 
 #: includes/kkb_epay.admin.inc:36
 msgid "When debugging mode is turned on, all payments are processed by a sandbox gateway. Payments can be done only with special testing bank cards. Make sure to turn debugging off as soon as you finish testing. You risk loosing money if real clients make payments while it is on."
-msgstr "Когда режим отладки включен, все платежи обрабатываются тестовым сервере. Оплата может быть сделана только со специальными банковскими картами тестирования. Как только вы закончите тестирование, выключите режим отладки, так как Вы рискуете потерять платежи, совершённые клиентами во время отладки."
+msgstr "Когда режим отладки включён, все платежи обрабатываются тестовым сервером. Оплата может быть сделана только специальными тестовыми банковскими картами. Как только вы закончите тестирование, выключите режим отладки, так как вы рискуете потерять платежи, совершённые клиентами во время отладки."
 
 #: includes/kkb_epay.admin.inc:40
 msgid "Provide your password to save changes:"
-msgstr "Укажите свой пароль, чтобы сохранить изменения:"
+msgstr "Введите свой пароль, чтобы сохранить изменения:"
 
 #: includes/kkb_epay.admin.inc:48
 msgid "Save configuration"
@@ -157,11 +156,11 @@ msgstr "Неверный пароль."
 
 #: includes/kkb_epay.admin.inc:77
 msgid "Debugging mode has been turned on. Turn it off as soon as possible."
-msgstr "Режиме отладки был включен. Выключите его как можно скорее."
+msgstr "Режим отладки был включён. Выключите его как можно скорее."
 
 #: includes/kkb_epay.admin.inc:80
 msgid "Debugging mode has been turned off."
-msgstr "Режим отладки выключен."
+msgstr "Режим отладки выключён."
 
 #: includes/kkb_epay.admin.inc:94
 msgid "Certificate ID:"
@@ -169,15 +168,15 @@ msgstr "ID сертификата:"
 
 #: includes/kkb_epay.admin.inc:102
 msgid "Merchant name:"
-msgstr "Имя покупателя:"
+msgstr "Имя продавца:"
 
 #: includes/kkb_epay.admin.inc:110
 msgid "Merchant ID:"
-msgstr "ID покупателя:"
+msgstr "ID продавца:"
 
 #: includes/kkb_epay.admin.inc:118
 msgid "Private key password:"
-msgstr "Пароль закрытого ключа:"
+msgstr "Пароль к закрытому ключу:"
 
 #: includes/kkb_epay.admin.inc:126
 msgid "Private key:"
@@ -193,44 +192,43 @@ msgstr "Ошибка при работе с ключом. Пожалуйста, 
 
 #: includes/kkb_epay.admin.inc:207
 msgid "<strong>Your private key has been imported, but it was not yet saved.</strong> These instructions will tell you how to do it."
-msgstr "<strong>Ваш закрытый ключ был импортирован, но еще не сохранен.</strong> В инструкии показано как сохранить."
+msgstr "<strong>Ваш закрытый ключ импортирован, но ещё не сохранён.</strong> В этой инструкии рассказано, как это сделать."
 
 #: includes/kkb_epay.admin.inc:212
 msgid "The private key must be kept <strong>in secret</strong> because anyone who has it can perform financial operations on your behalf; for example, debit any credit cards, cancel payments, transfer money from your account, etc."
-msgstr "Закрытый ключ должен быть в <strong>секрете,</strong>  так как, любой кто имеет доступ может выполнять финансовые операции от вашего имени, например,  любые дебетовые кредитные карты, отмена платежей, переводить деньги с вашего счета, и т.д."
+msgstr "Закрытый ключ должен храниться <strong>в тайне</strong>, так как тот, кто имеет к нему доступ, может выполнять финансовые операции от вашего имени. Например, выставлять любые счета, отменять платежи, переводить деньги с вашего счёта, и т.д."
 
 #: includes/kkb_epay.admin.inc:217
 msgid "Copy the code below. Do not modify it! Place it at the end of the <strong>@file</strong> file and save the file."
-msgstr "Скопируйте код ниже. Не изменяйте его. Скопируйте его в конец файла <strong>@file</strong> и сохраните."
+msgstr "Скопируйте этот код. Не изменяйте его! Поместите его в конце файла <strong>@file</strong> и сохраните."
 
 #: includes/kkb_epay.admin.inc:227
 msgid "Place this code into your settings.php file:"
-msgstr "Скопируйте этот код в файл settings.php"
+msgstr "Скопируйте этот код в файл settings.php:"
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:34
 msgid "KKB Epay credit card processing center"
-msgstr "KKB Epay центр обработки кредитной карты"
+msgstr "Процессинговый центр KKB Epay"
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:35
 msgid "Pay with our bank cart securely at the <a href=\"https://epay.kkb.kz/\">https://epay.kkb.kz/</a> processing center."
-msgstr "Оплатить безопасно с помощью банка <a href=\"https://epay.kkb.kz/"
-"\">https://epay.kkb.kz/</a> в процессинговом центре"
+msgstr "Безопасная оплата кредитной картой на сайте <a href=\"https://epay.kkb.kz/\">https://epay.kkb.kz/</a>"
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:116
 msgid "Payment for the order has been received. Payment reference number is %s."
-msgstr "Оплата за заказ был получен. Номер платежа %s."
+msgstr "Оплата за заказ получена. Номер обращения к платёжной системе: %s."
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:173
 msgid "Order created through website."
-msgstr "Заказ создан через веб-сайт."
+msgstr "Заказ создан через сайт."
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:177
 msgid "Order has been payed with KKB Epay. Payment reference number is %reference"
-msgstr "Заказ оплачен через KKB Epay. Номер платежа %reference"
+msgstr "Заказ оплачен при помощи KKB Epay. Номер обращения к платёжной системе: %reference"
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:196
 msgid "This order cannot be payed with Epay processing center. Epay can accept payments only in Tenge. The currency of this order is %c."
-msgstr "Epay процессинговый центр не может оплатить заказ. Epay может принять оплаты только в тенге. Валюте в этом заказе %c."
+msgstr "Этот заказ нельзя оплатить при помощи Epay. Epay может принимать заказы только в тенге. Валюте этого заказа: %c."
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:207
 msgid "kkb_epay"
@@ -238,7 +236,7 @@ msgstr "kkb_epay"
 
 #: modules/kkb_epay_uc/kkb_epay_uc.module:207
 msgid "An order in unsupported currency %c could not be processed by Epay."
-msgstr "Epay не может обработать заказ с недопустимой валютой."
+msgstr "Epay не может обработать заказ в неподдерживаемой валюте %c."
 
 #: modules/kkb_epay_uc/kkb_epay_uc.info:0
 msgid "Ubercart KKB Epay"
@@ -246,8 +244,8 @@ msgstr "Ubercart KKB Epay"
 
 #: modules/kkb_epay_uc/kkb_epay_uc.info:0
 msgid "Allows KKB Epay gateway to be used to pay for Ubercart orders."
-msgstr "Шлюз KKB Epay позволяет использовать для оплаты Ubercart заказов."
+msgstr "Позволяет использовать шлюз KKB Epay для оплаты заказов в Ubercart."
 
 #: modules/kkb_epay_uc/kkb_epay_uc.info:0
 msgid "Ubercart - payment"
-msgstr "Ubercart - платеж"
+msgstr "Ubercart - оплата"
