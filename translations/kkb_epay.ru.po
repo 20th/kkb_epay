@@ -20,7 +20,7 @@ msgstr ""
 
 #: kkb_epay.module:95
 msgid "Proceed to payment"
-msgstr "Процесс оплаты""
+msgstr "Процесс оплаты"
 
 #: kkb_epay.module:118
 msgid "KKB Epay debugging mode is turned on. Payment is only possible with special bank cards."
