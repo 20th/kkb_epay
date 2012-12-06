@@ -1,9 +1,21 @@
-# $Id$
 #
-# KKB EBAY translation package.
-# Copyright (C) Serik Yeleussizov
-# This file is distributed under the same license as the PACKAGE package.
-# Serik Yeleussizov <s.yeleussizov@gmail.com>, 2012-12-06 12:20+0600.
+# KKB Epay translation package.
+# Copyright (C) YEAR, FULL NAME <EMAIL>
+#
+# This file is part of KKB Epay.
+#
+# KKB Epay is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 2 of the License, or
+# (at your option) any later version.
+#
+# KKB Epay is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with KKB Epay.  If not, see <http://www.gnu.org/licenses/>.
 #
 #, fuzzy
 msgid ""
@@ -11,8 +23,8 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2012-12-06 12:20+0600\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
-"Last-Translator: Serik Yeleussizov <s.yeleussizov@gmail.com>\n"
-"Language-Team: RU <s.yelessizov@gmail.com>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
