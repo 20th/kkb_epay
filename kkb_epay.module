@@ -127,7 +127,7 @@ function kkb_epay_menu() {
 
   $items['admin/config/services/epay'] = array(
     'title'            => 'KKB Epay',
-    'description'      => t('KKB Epay payments gateway configuration.'),
+    'description'      => 'KKB Epay payments gateway configuration.',
     'page callback'    => 'system_admin_menu_block_page',
     'access callback'  => 'user_access',
     'access arguments' => array('administer kkb_epay'),
@@ -138,7 +138,7 @@ function kkb_epay_menu() {
 
   $items['admin/config/services/epay/debug'] = array(
     'title'            => 'KKB Epay debugging mode',
-    'description'      => t('Choose to send payments to a live gateway or a sandbox.'),
+    'description'      => 'Choose to send payments to a live gateway or a sandbox.',
     'page callback'    => 'drupal_get_form',
     'page arguments'   => array('kkb_epay_admin_debug_form'),
     'access callback'  => 'user_access',
@@ -149,7 +149,7 @@ function kkb_epay_menu() {
 
   $items['admin/config/services/epay/private-key'] = array(
     'title'            => 'KKB Epay private key configuration',
-    'description'      => t('Check the existing or add a new private key.'),
+    'description'      => 'Check the existing or add a new private key.',
     'page callback'    => 'drupal_get_form',
     'page arguments'   => array('kkb_epay_admin_private_key_form'),
     'access callback'  => 'user_access',
@@ -160,7 +160,7 @@ function kkb_epay_menu() {
 
   $items['admin/config/services/epay/save-private-key'] = array(
     'title'            => 'KKB Epay private key configuration',
-    'description'      => t('Save imported private key into configuration file.'),
+    'description'      => 'Save imported private key into configuration file.',
     'page callback'    => 'kkb_epay_admin_private_key_save_page',
     'access callback'  => 'user_access',
     'access arguments' => array('administer kkb_epay'),
