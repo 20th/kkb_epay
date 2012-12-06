@@ -70,23 +70,23 @@ msgstr ""
 msgid "Payment failed"
 msgstr ""
 
-#: (duplicate) kkb_epay.install:36 
+#: (duplicate) kkb_epay.install:36
 msgid "OpenSSL extension"
 msgstr ""
 
-#: (duplicate) kkb_epay.install:37 
+#: (duplicate) kkb_epay.install:37
 msgid "This module requires OpenSSL extension to secure transactions, but it was not found."
 msgstr ""
 
-#: (duplicate) kkb_epay.install:49 ;60 
+#: (duplicate) kkb_epay.install:49 ;60
 msgid "KKB Epay private key"
 msgstr ""
 
-#: (duplicate) kkb_epay.install:50 
+#: (duplicate) kkb_epay.install:50
 msgid "Private key loaded. Merchant ID is %id."
 msgstr ""
 
-#: (duplicate) kkb_epay.install:61 
+#: (duplicate) kkb_epay.install:61
 msgid "Private key is not found. You will not be able to receive payments without a private key. You can <a href=\"@url\">configure it right now</a>."
 msgstr ""
 

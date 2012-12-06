@@ -70,23 +70,23 @@ msgstr "Ваш платеж успешно проведен"
 msgid "Payment failed"
 msgstr "Оплата не удалось"
 
-#: (duplicate) kkb_epay.install:36 
+#: (duplicate) kkb_epay.install:36
 msgid "OpenSSL extension"
 msgstr "Расширения OpenSSL"
 
-#: (duplicate) kkb_epay.install:37 
+#: (duplicate) kkb_epay.install:37
 msgid "This module requires OpenSSL extension to secure transactions, but it was not found."
 msgstr "Модуль требует расширение OpenSSL для обеспечения безопасной транзакции, расширение отсутствует."
 
-#: (duplicate) kkb_epay.install:49 ;60 
+#: (duplicate) kkb_epay.install:49 ;60
 msgid "KKB Epay private key"
 msgstr "Закрытый ключ KKB Epay"
 
-#: (duplicate) kkb_epay.install:50 
+#: (duplicate) kkb_epay.install:50
 msgid "Private key loaded. Merchant ID is %id."
 msgstr "Закрытый ключ загружен. ID покупателя $id"
 
-#: (duplicate) kkb_epay.install:61 
+#: (duplicate) kkb_epay.install:61
 msgid "Private key is not found. You will not be able to receive payments without a private key. You can <a href=\"@url\">configure it right now</a>."
 msgstr "Закрытый ключ не найден. Вы не сможете получать платежи без секретного ключа. Вы можете <a href=\"@url\">настроить его прямо сейчас</a>."
 
