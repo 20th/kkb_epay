@@ -1,7 +1,6 @@
 #
 # KKB Epay translation package.
-# Copyright (C) Serik Yeleussizov
-# Serik Yeleussizov <s.yeleussizov@gmail.com>, 2012-12-06 12:20+0600.
+# Copyright (C) 2012, Serik Yeleussizov <s.yeleussizov@gmail.com>
 #
 # This file is part of KKB Epay.
 #
