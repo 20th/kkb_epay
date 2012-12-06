@@ -47,7 +47,7 @@ msgstr "Переключение между тестовым и рабочим �
 
 #: kkb_epay.module:152
 msgid "Check the existing or add a new private key."
-msgstr "Проверьте, что закрытый ключ существует, или добавьте новый."
+msgstr "Проверка закрытого ключа и добавление нового."
 
 #: kkb_epay.module:163
 msgid "Save imported private key into configuration file."
