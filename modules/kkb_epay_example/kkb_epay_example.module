@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @file kkb_epay_example.module
- *   An example module that implements 'kkb_epay' hooks to accept payments.
+ * @file
+ * An example module that implements 'kkb_epay' hooks to accept payments.
  *
  * This module demostrates the basic workflow that must be implemented in your
  * module to start accepting payments with Epay. It does not matter whether

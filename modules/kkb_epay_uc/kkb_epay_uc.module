@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @file kkb_epay_uc.module
- *   Integration of kkb_epay module with Ubercart's payments system.
+ * @file
+ * Integration of kkb_epay module with Ubercart's payments system.
  *
  * Copyright (C) 2012, Victor Nikulshin
  * Copyright (C) 2012, Chris Oden <wodenx@gmail.com>

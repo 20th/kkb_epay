@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @file kkb_epay.api.php
- *   Hooks provided by the kkb_epay module.
+ * @file
+ * Hooks provided by the kkb_epay module.
  */
 
 /**
