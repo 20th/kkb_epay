@@ -119,7 +119,7 @@ function kkb_epay_example_pay($order_id) {
 
   $order = _kkb_epay_example_load_order($order_id);
   if ($order->uid != $user->uid) {
-    return MENU_ACCESS_DENIED:
+    return MENU_ACCESS_DENIED;
   }
 
   $amount = $order->points * KKB_EPAY_EXAMPLE_POINT_COST;
