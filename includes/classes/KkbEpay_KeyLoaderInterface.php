@@ -59,4 +59,3 @@ interface KkbEpay_KeyLoaderInterface
   public function validateKey();
 
 }
-

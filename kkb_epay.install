@@ -99,4 +99,3 @@ function kkb_epay_uninstall() {
   variable_del('kkb_epay_private_key_debug');
   variable_del('kkb_epay_debug_status');
 }
-

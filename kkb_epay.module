@@ -224,4 +224,3 @@ function kkb_epay_permission() {
 function _kkb_epay_pack_private_key($data) {
   return implode("\n", str_split(base64_encode(serialize($data)), 64));
 }
-

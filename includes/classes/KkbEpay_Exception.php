@@ -26,4 +26,3 @@
 class KkbEpay_Exception extends Exception
 {
 }
-

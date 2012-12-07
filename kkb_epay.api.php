@@ -144,4 +144,3 @@ function hook_form_kkb_epay_billing_statement_alter(&$form, &$form_state) {
 /**
  * @} End of "addtogroup hooks".
  */
-

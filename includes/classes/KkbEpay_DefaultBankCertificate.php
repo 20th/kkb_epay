@@ -91,4 +91,3 @@ class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
   }
 
 }
-

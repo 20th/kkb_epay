@@ -234,4 +234,3 @@ function _kkb_epay_example_load_order($order_id) {
 function _kkb_epay_example_update_order($order) {
   return TRUE;
 }
-

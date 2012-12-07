@@ -87,4 +87,3 @@ final class KkbEpay_Checker
   }
 
 }
-

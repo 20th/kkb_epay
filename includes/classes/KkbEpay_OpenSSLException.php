@@ -26,4 +26,3 @@
 class KKbEpay_OpenSSLException extends KKbEpay_Exception
 {
 }
-

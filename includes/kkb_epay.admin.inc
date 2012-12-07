@@ -234,4 +234,3 @@ function kkb_epay_admin_private_key_save_page() {
 
   return $page;
 }
-

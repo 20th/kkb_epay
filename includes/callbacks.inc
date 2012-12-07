@@ -89,4 +89,3 @@ function kkb_epay_callback_post_failure() {
   // TODO
   echo '0';
 }
-

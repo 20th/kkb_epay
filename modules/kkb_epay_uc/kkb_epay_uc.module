@@ -210,4 +210,3 @@ function _kkb_epay_uc_unsupported_currency_log($order) {
     WATCHDOG_CRITICAL
   );
 }
-

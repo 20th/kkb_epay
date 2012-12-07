@@ -245,4 +245,3 @@ function kkb_epay_bank_response_document_parse($document) {
     'timestamp'     => $timestamp,
   ));
 }
-

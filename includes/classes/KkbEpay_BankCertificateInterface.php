@@ -33,4 +33,3 @@ interface KkbEpay_BankCertificateInterface
   public function getCertificate();
 
 }
-
