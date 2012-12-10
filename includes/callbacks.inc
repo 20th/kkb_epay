@@ -83,9 +83,11 @@ function kkb_epay_callback_post_success() {
 
 /**
  * Menu page callback. Handles failure response from the processing center.
+ *
+ * @todo
+ *   Callback must be implemented.
  */
 function kkb_epay_callback_post_failure() {
   module_load_include('inc', 'kkb_epay', 'includes/billing');
-  // TODO
   echo '0';
 }
