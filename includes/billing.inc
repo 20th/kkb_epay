@@ -95,8 +95,9 @@ function kkb_epay_check_signature($message, $signature) {
 }
 
 /**
- * Creates a complete signed order document that can be sent directly to the
- * processing center.
+ * Creates a complete signed order document.
+ *
+ * The created docuemnt can be sent directly to the processing center.
  *
  * @return string
  *   Order document as a string. The document is not base64 encoded.
@@ -179,6 +180,7 @@ function kkb_epay_create_order_appendix(KkbEpay_Order $order) {
  *   Response received from the center.
  *
  * @return boolean
+ *   TRUE if document is valid, FALSE othewise.
  */
 function kkb_epay_bank_response_document_validate($document) {
   if (substr($document, 0, 10) != '<document>') return FALSE;
