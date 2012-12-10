@@ -23,8 +23,7 @@
  */
 
 /**
- * Prepares a complete valid form ready to be submitted to the processing
- * server.
+ * Prepares a complete form ready to be submitted to the processing server.
  *
  * This form is created as a standard Drupal form. Modifications can be made
  * with the help of hook_form_alter() hooks, however, it is very important not
@@ -218,8 +217,9 @@ function kkb_epay_permission() {
 }
 
 /**
- * Packs information about a private key in the format used by the
- * KkbEpay_DrupalKeyLoader.
+ * Packs information about a private key.
+ *
+ * The format of the package is that used by the KkbEpay_DrupalKeyLoader.
  */
 function _kkb_epay_pack_private_key($data) {
   return implode("\n", str_split(base64_encode(serialize($data)), 64));

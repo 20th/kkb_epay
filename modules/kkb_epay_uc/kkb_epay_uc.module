@@ -55,8 +55,10 @@ function kkb_epay_uc_method_callback($op, &$order, $form = NULL, &$form_state = 
 }
 
 /**
- * Form builder. Creates redirect form that is displayed after an order is
- * formed and is ready to be payed.
+ * Form builder.
+ *
+ * Creates redirect form that is displayed after an order is formed and is
+ * ready to be payed.
  */
 function kkb_epay_uc_redirect($form, &$form_state, stdClass $uc_order) {
   if ($uc_order->currency != 'KZT') {
@@ -147,6 +149,8 @@ function kkb_epay_uc_kkb_epay_success_page($id) {
 }
 
 /**
+ * Sale completion helper.
+ *
  * Completes the order checkout, saves payment confirmation, adds comments to
  * the comment, logges user in (if autologin is enabled for new users),
  * builds success page, and optionaly redirects user somewhere else (if
@@ -188,6 +192,8 @@ function _kkb_epay_uc_complete_sale($order) {
 }
 
 /**
+ * Error message helper.
+ *
  * Creates an errors message for user to inform that an order uses a currency
  * that cannot be processed by the Epay gateway.
  */

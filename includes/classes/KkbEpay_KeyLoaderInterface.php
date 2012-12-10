@@ -27,11 +27,11 @@ interface KkbEpay_KeyLoaderInterface
 {
 
   /**
-   * Must return an instance of the KkbEpay_Key class loaded with all required
-   * information about the key.
+   * Must return an instance of the KkbEpay_Key class.
    *
    * @return KkbEpay_Key|NULL
-   *   An instance of KkbEpay_Key if key was successfully loaded.
+   *   If key was successfully loaded, an instance of KkbEpay_Key class with
+   *   all required information about the key.
    *   NULL in case of any error, e.g. key was not found.
    */
   public function getKey();

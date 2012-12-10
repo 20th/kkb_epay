@@ -72,8 +72,7 @@ final class KkbEpay_Sign
   }
 
   /**
-   * Signs the message with sign() method and encodes signature with
-   * base64 function.
+   * Signs the message with sign() and encodes signature with base64.
    */
   public function sign64($message)
   {

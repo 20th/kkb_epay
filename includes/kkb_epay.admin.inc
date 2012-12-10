@@ -196,8 +196,10 @@ function kkb_epay_admin_private_key_form_submit($form, &$form_state) {
 }
 
 /**
- * Menu page callback. Displays previously imported private key in a packaged
- * format and gives futher instructions to the user.
+ * Menu page callback.
+ *
+ * Displays previously imported private key in a packaged format and gives
+ * further instructions to the user.
  */
 function kkb_epay_admin_private_key_save_page() {
   if (empty($_SESSION['kkb_epay']['packed_private_key'])) {

@@ -110,8 +110,10 @@ function kkb_epay_example_buy_points_form_submit($form, &$form_state) {
 // Step 2
 
 /**
- * Menu page callback. Transform order from internal structure to
- * KkbEpay_Order object and displayes 'kkb_epay_billing_statement' form.
+ * Menu page callback.
+ *
+ * Transforms order from internal structure to KkbEpay_Order object and
+ * displayes 'kkb_epay_billing_statement' form.
  */
 function kkb_epay_example_pay($order_id) {
   global $user;
