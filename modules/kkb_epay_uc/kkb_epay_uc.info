@@ -7,4 +7,3 @@ package = Ubercart - payment
 
 dependencies[] = kkb_epay
 dependencies[] = uc_payment
-

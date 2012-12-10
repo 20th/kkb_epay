@@ -19,4 +19,3 @@ files[] = includes/classes/KkbEpay_OrderItem.php
 files[] = includes/classes/KkbEpay_OpenSSLException.php
 files[] = includes/classes/KkbEpay_PaymentNotification.php
 files[] = includes/classes/KkbEpay_Sign.php
-
