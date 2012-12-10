@@ -121,11 +121,10 @@ function kkb_epay_admin_private_key_form($form, &$form_state) {
   );
 
   $form['key_data']['key'] = array(
-    '#type' => 'textarea',
+    '#type' => 'file',
     '#title' => t('Private key:'),
-    '#cols' => 80,
-    '#rows' => 20,
-    '#required' => TRUE,
+    '#description' => t('Name of the file with the private key is <em>&lt;client name&gt;.prv</em>.'),
+    '#size' => 60,
   );
 
   $form['actions'] = array(
@@ -152,6 +151,16 @@ function kkb_epay_admin_private_key_form($form, &$form_state) {
  */
 function kkb_epay_admin_private_key_form_validate($form, &$form_state) {
   $key = new KkbEpay_Key();
+
+  if (!empty($_FILES['files']['tmp_name']['key_data'])) {
+    $form_state['values']['key_data']['key'] = trim(file_get_contents(
+      $_FILES['files']['tmp_name']['key_data']
+    ));
+  }
+  else {
+    form_set_error('key_data][key', t('You must upload file with the private key.'));
+    $form_state['values']['key_data']['key'] = NULL;
+  }
 
   $fields = array(
     'key', 'password', 'merchant_id', 'merchant_name', 'certificate_id',
