@@ -186,7 +186,7 @@ msgid "Import new private key"
 msgstr "Импорт нового закрытого ключа"
 
 #: includes/kkb_epay.admin.inc:172
-msgid "There is something wrong with this key. Please, check that the provided information is correct."
+msgid "There is something wrong with this key. Please check that the provided information is correct."
 msgstr "Ошибка при работе с ключом. Пожалуйста, убедитесь, что предоставленная информация является корректной."
 
 #: includes/kkb_epay.admin.inc:207
@@ -248,3 +248,11 @@ msgstr "Позволяет использовать шлюз KKB Epay для о�
 #: modules/kkb_epay_uc/kkb_epay_uc.info:0
 msgid "Ubercart - payment"
 msgstr "Ubercart - оплата"
+
+#: includes/kkb_epay.admin.inc:126
+msgid "Name of the file with the private key is <em>&lt;client name&gt;.prv</em>."
+msgstr "Файл с закрытым ключом называется <em>&lt;имя клиента&gt;.prv</em>."
+
+#: includes/kkb_epay.admin.inc:161
+msgid "You must upload file with the private key."
+msgstr "Вы должны загрузить файл с закрытым ключом."

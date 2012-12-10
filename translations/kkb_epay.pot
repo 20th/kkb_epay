@@ -187,7 +187,7 @@ msgid "Import new private key"
 msgstr ""
 
 #: includes/kkb_epay.admin.inc:172
-msgid "There is something wrong with this key. Please, check that the provided information is correct."
+msgid "There is something wrong with this key. Please check that the provided information is correct."
 msgstr ""
 
 #: includes/kkb_epay.admin.inc:207
@@ -256,4 +256,12 @@ msgstr ""
 
 #: modules/kkb_epay_uc/kkb_epay_uc.info:0
 msgid "Ubercart - payment"
+msgstr ""
+
+#: includes/kkb_epay.admin.inc:126
+msgid "Name of the file with the private key is <em>&lt;client name&gt;.prv</em>."
+msgstr ""
+
+#: includes/kkb_epay.admin.inc:161
+msgid "You must upload file with the private key."
 msgstr ""
