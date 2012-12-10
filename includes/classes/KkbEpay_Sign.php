@@ -51,7 +51,7 @@ final class KkbEpay_Sign
    * @param string $message
    *   Message that must be signed, as a string. Cannot be empty.
    *
-   * @return
+   * @return string
    *   Signature as a binary string.
    */
   public function sign($message)

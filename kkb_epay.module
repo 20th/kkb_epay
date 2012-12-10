@@ -46,7 +46,7 @@
  * @todo
  *   Set interface language to user's preferred language.
  *
- * @return
+ * @return array
  *   Complete definition of a billing form in as Drupal's renderable array.
  */
 function kkb_epay_billing_statement($form, &$form_state, KkbEpay_Order $order, $account) {

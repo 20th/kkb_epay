@@ -123,7 +123,8 @@ class KkbEpay_Order
   protected function isSuportedCurrency($code)
   {
     switch ($code) {
-      case 398:  // Tenge
+      // Tenge.
+      case 398:
         return TRUE;
     }
 

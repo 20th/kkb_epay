@@ -22,7 +22,6 @@
  *   code to check that this is the first notification about an order.
  *   If this is NOT the first notification, and the order is already marked as
  *   payed, ignore the notification and do not perform any actions.
- *
  */
 function hook_kkb_epay_payment(KkbEpay_PaymentNotification $notification) {
   $order = my_module_load_order($notification->getOrderId());
