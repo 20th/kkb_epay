@@ -38,7 +38,7 @@
 class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
 {
 
-  protected $_filepath;
+  protected $filepath;
 
 
   public function __construct($filepath = NULL)
@@ -71,11 +71,11 @@ class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
    */
   public function getCertificateFilepath()
   {
-    if (!isset($this->_filepath)) {
+    if (!isset($this->filepath)) {
       $default_path = __DIR__ . '/../../data/kkb_certificate.pem';
       $this->setCertificateFilepath($default_path);
     }
-    return $this->_filepath;
+    return $this->filepath;
   }
 
   /**
@@ -86,7 +86,7 @@ class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
     if (!is_file($filepath) || !is_readable($filepath)) {
       throw new KkbEpay_Exception('File with default bank certificate cannot be read.');
     }
-    $this->_filepath = $filepath;
+    $this->filepath = $filepath;
     return $this;
   }
 

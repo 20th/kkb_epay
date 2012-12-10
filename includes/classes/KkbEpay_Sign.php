@@ -26,7 +26,7 @@
 final class KkbEpay_Sign
 {
 
-  private $_key;
+  private $key;
 
 
   public function __construct(KkbEpay_Key $key)
@@ -42,7 +42,7 @@ final class KkbEpay_Sign
       throw new KkbEpay_Exception($error, 0, $previous);
     }
 
-    $this->_key = $resource;
+    $this->key = $resource;
   }
 
   /**
@@ -61,14 +61,14 @@ final class KkbEpay_Sign
     }
 
     $signature = '';
-    openssl_sign($message, $signature, $this->_key);
+    openssl_sign($message, $signature, $this->key);
 
-    // The reason why _reverse() must be used here is mysterious.
+    // The reason why reverse() must be used here is mysterious.
     // But this action was performed in the original signing code that
     // was provided by the processing center. And the processing center
-    // will perform _reverse() operation too when it validates this
+    // will perform reverse() operation too when it validates this
     // signature. Thus, this action is required.
-    return $this->_reverse($signature);
+    return $this->reverse($signature);
   }
 
   /**
@@ -81,7 +81,7 @@ final class KkbEpay_Sign
   }
 
 
-  private function _reverse($data)
+  private function reverse($data)
   {
     return strrev($data);
   }

@@ -29,15 +29,15 @@
 final class KkbEpay_Key
 {
 
-  private $_key;
+  private $key;
 
-  private $_password;
+  private $password;
 
-  private $_merchant_id;
+  private $merchant_id;
 
-  private $_merchant_name;
+  private $merchant_name;
 
-  private $_certificate_id;
+  private $certificate_id;
 
 
   public function __construct($key = NULL, $pwd = NULL, $c_id = NULL, $m_id = NULL, $m_name = NULL)
@@ -61,10 +61,10 @@ final class KkbEpay_Key
 
   public function isValid()
   {
-    if (empty($this->_key)) return FALSE;
-    if (empty($this->_merchant_id)) return FALSE;
-    if (empty($this->_merchant_name)) return FALSE;
-    if (empty($this->_certificate_id)) return FALSE;
+    if (empty($this->key)) return FALSE;
+    if (empty($this->merchant_id)) return FALSE;
+    if (empty($this->merchant_name)) return FALSE;
+    if (empty($this->certificate_id)) return FALSE;
 
     return TRUE;
   }
@@ -80,7 +80,7 @@ final class KkbEpay_Key
     if (substr($key, -29) != '-----END RSA PRIVATE KEY-----') {
       throw new KkbEpay_KeyException('Key does not end with a correct RSA key declaration.');
     }
-    $this->_key = trim($key);
+    $this->key = trim($key);
     return $this;
   }
 
@@ -89,7 +89,7 @@ final class KkbEpay_Key
     if (!is_string($pwd)) {
       throw new KkbEpay_KeyException('Password must be a string.');
     }
-    $this->_password = $pwd;
+    $this->password = $pwd;
     return $this;
   }
 
@@ -101,7 +101,7 @@ final class KkbEpay_Key
     if (!preg_match('/^[0-9]{8}$/', $id)) {
       throw new KkbEpay_KeyException('Merchant ID does not match expected format. It must consist of 8 digits.');
     }
-    $this->_merchant_id = $id;
+    $this->merchant_id = $id;
     return $this;
   }
 
@@ -116,7 +116,7 @@ final class KkbEpay_Key
     if (!preg_match('/^[A-Za-z0-9 _-]{1,255}$/', $name)) {
       throw new KkbEpay_KeyException('Merchant name does not match expected format. It can consist only of English letters, digits, \'-\', \'_\' and space.');
     }
-    $this->_merchant_name = $name;
+    $this->merchant_name = $name;
     return $this;
   }
 
@@ -128,33 +128,33 @@ final class KkbEpay_Key
     if (!preg_match('/^[A-Fa-f0-9]{10}$/', $id)) {
       throw new KkbEpay_KeyException('Certificate ID does not match expected format. It must be exactly 10 characters long and consist of hexadecimal digits.');
     }
-    $this->_certificate_id = strtoupper($id);
+    $this->certificate_id = strtoupper($id);
     return $this;
   }
 
   public function getKey()
   {
-    return $this->_key;
+    return $this->key;
   }
 
   public function getPassword()
   {
-    return empty($this->_password) ? '' : $this->_password;
+    return empty($this->password) ? '' : $this->password;
   }
 
   public function getMerchantId()
   {
-    return $this->_merchant_id;
+    return $this->merchant_id;
   }
 
   public function getMerchantName()
   {
-    return $this->_merchant_name;
+    return $this->merchant_name;
   }
 
   public function getCertificateId()
   {
-    return $this->_certificate_id;
+    return $this->certificate_id;
   }
 
 }

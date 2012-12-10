@@ -27,13 +27,13 @@
 class KkbEpay_OrderItem
 {
 
-  protected $_name;
+  protected $name;
 
-  protected $_number;
+  protected $number;
 
-  protected $_amount;
+  protected $amount;
 
-  protected $_quantity;
+  protected $quantity;
 
 
   public function __construct($name, $amount = 0, $quantity = 1)
@@ -45,46 +45,46 @@ class KkbEpay_OrderItem
 
   public function setName($name)
   {
-    $this->_name = (string) $name;
+    $this->name = (string) $name;
     return $this;
   }
 
   public function setAmount($amount)
   {
-    $this->_amount = $amount;
+    $this->amount = $amount;
     return $this;
   }
 
   public function setQuantity($quantity)
   {
-    $this->_quantity = (int) $quantity;
+    $this->quantity = (int) $quantity;
     return $this;
   }
 
   public function setNumber($number)
   {
-    $this->_number = (int) $number;
+    $this->number = (int) $number;
     return $this;
   }
 
   public function getName()
   {
-    return $this->_name;
+    return $this->name;
   }
 
   public function getAmount()
   {
-    return $this->_amount;
+    return $this->amount;
   }
 
   public function getQuantity()
   {
-    return $this->_quantity;
+    return $this->quantity;
   }
 
   public function getNumber()
   {
-    return $this->_number;
+    return $this->number;
   }
 
 }

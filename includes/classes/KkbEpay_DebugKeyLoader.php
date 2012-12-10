@@ -28,13 +28,13 @@
 class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
 {
 
-  protected $_debug = FALSE;
-  protected $_filepath;
+  protected $debug = FALSE;
+  protected $filepath;
 
 
   public function getKey()
   {
-    if (!$this->_debug) {
+    if (!$this->debug) {
       throw new KkbEpay_KeyException('Debug key can be loaded only when debugging mode is turned on. Call setDebug() method with TRUE parameter.');
     }
     $key = new KkbEpay_Key();
@@ -50,7 +50,7 @@ class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
 
   public function setDebug($flag)
   {
-    $this->_debug = (bool) $flag;
+    $this->debug = (bool) $flag;
   }
 
   public function validateKey()
@@ -71,11 +71,11 @@ class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
    */
   public function getKeyFilepath()
   {
-    if (!isset($this->_filepath)) {
+    if (!isset($this->filepath)) {
       $default_path = __DIR__ . '/../../data/debug_private_key.pem';
       $this->setKeyFilepath($default_path);
     }
-    return $this->_filepath;
+    return $this->filepath;
   }
 
   /**
@@ -86,7 +86,7 @@ class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
     if (!is_file($filepath) || !is_readable($filepath)) {
       throw new KkbEpay_Exception('File with debug private key cannot be read.');
     }
-    $this->_filepath = $filepath;
+    $this->filepath = $filepath;
     return $this;
   }
 

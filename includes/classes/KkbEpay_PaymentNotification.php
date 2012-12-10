@@ -29,33 +29,33 @@
 class KkbEpay_PaymentNotification
 {
 
-  protected $_order_id;
+  protected $order_id;
 
-  protected $_timestamp;
+  protected $timestamp;
 
-  protected $_amount;
+  protected $amount;
 
-  protected $_reference;
+  protected $reference;
 
-  protected $_approval_code;
+  protected $approval_code;
 
 
   public function __construct(array $params = array())
   {
     if (isset($params['order_id'])) {
-      $this->_order_id = $params['order_id'];
+      $this->order_id = $params['order_id'];
     }
     if (isset($params['timestamp'])) {
-      $this->_timestamp = $params['timestamp'];
+      $this->timestamp = $params['timestamp'];
     }
     if (isset($params['amount'])) {
-      $this->_amount = (double) $params['amount'];
+      $this->amount = (double) $params['amount'];
     }
     if (isset($params['reference'])) {
-      $this->_reference = $params['reference'];
+      $this->reference = $params['reference'];
     }
     if (isset($params['approval_code'])) {
-      $this->_approval_code = $params['approval_code'];
+      $this->approval_code = $params['approval_code'];
     }
   }
 
@@ -71,7 +71,7 @@ class KkbEpay_PaymentNotification
    */
   public function getOrderId($remove_padding = TRUE)
   {
-    $id = $this->_order_id;
+    $id = $this->order_id;
     if ($remove_padding) {
       return ltrim($id, '0');
     }
@@ -80,22 +80,22 @@ class KkbEpay_PaymentNotification
 
   public function getTimestamp()
   {
-    return $this->_timestamp;
+    return $this->timestamp;
   }
 
   public function getAmount()
   {
-    return $this->_amount;
+    return $this->amount;
   }
 
   public function getReference()
   {
-    return $this->_reference;
+    return $this->reference;
   }
 
   public function getApprovalCode()
   {
-    return $this->_approval_code;
+    return $this->approval_code;
   }
 
 }

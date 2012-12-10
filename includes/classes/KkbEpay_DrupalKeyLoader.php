@@ -27,12 +27,12 @@
 class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface
 {
 
-  protected $_debug = FALSE;
+  protected $debug = FALSE;
 
 
   public function getKey()
   {
-    $data = $this->_loadKeyData();
+    $data = $this->loadKeyData();
     return new KkbEpay_Key(
       $data['key'],
       $data['password'],
@@ -44,7 +44,7 @@ class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface
 
   public function setDebug($flag)
   {
-    $this->_debug = (bool) $flag;
+    $this->debug = (bool) $flag;
   }
 
   public function validateKey()
@@ -58,21 +58,21 @@ class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface
   }
 
 
-  protected function _loadKeyData()
+  protected function loadKeyData()
   {
-    $variant = 'kkb_epay_private_key_' . ($this->_debug ? 'debug' : 'live');
+    $variant = 'kkb_epay_private_key_' . ($this->debug ? 'debug' : 'live');
 
     if (!($key_data = variable_get($variant, NULL))) {
       throw new KkbEpay_KeyException('Private key does not exist as a system variable.');
     }
-    if (!($unpacked = $this->_unpack($key_data))) {
+    if (!($unpacked = $this->unpack($key_data))) {
       throw new KkbEpay_KeyException('Private key could not be unpacked.');
     }
 
     return $unpacked;
   }
 
-  protected function _unpack($data)
+  protected function unpack($data)
   {
     return unserialize(base64_decode(preg_replace('/\s/', '', $data)));
   }

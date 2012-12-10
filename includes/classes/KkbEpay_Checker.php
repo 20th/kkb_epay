@@ -26,7 +26,7 @@
 final class KkbEpay_Checker
 {
 
-  private $_certificate;
+  private $certificate;
 
 
   public function __construct(KkbEpay_BankCertificateInterface $certificate = NULL)
@@ -42,7 +42,7 @@ final class KkbEpay_Checker
       throw new KkbEpay_Exception($error, 0, $previous);
     }
 
-    $this->_certificate = $resource;
+    $this->certificate = $resource;
   }
 
   /**
@@ -65,11 +65,11 @@ final class KkbEpay_Checker
       throw new KkbEpay_Exception('Message cannot be empty.');
     }
 
-    // Reasons why _reverse operation is used are the same as in the
+    // Reasons why reverse operation is used are the same as in the
     // KkbEpay_Sign::sign method.
-    $signature = $this->_reverse($signature);
+    $signature = $this->reverse($signature);
 
-    return openssl_verify($message, $signature, $this->_certificate);
+    return openssl_verify($message, $signature, $this->certificate);
   }
 
   /**
@@ -81,7 +81,7 @@ final class KkbEpay_Checker
   }
 
 
-  private function _reverse($data)
+  private function reverse($data)
   {
     return strrev($data);
   }

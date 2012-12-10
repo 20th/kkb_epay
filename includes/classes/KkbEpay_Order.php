@@ -28,13 +28,13 @@
 class KkbEpay_Order
 {
 
-  protected $_id;
+  protected $id;
 
-  protected $_amount;
+  protected $amount;
 
-  protected $_currency;
+  protected $currency;
 
-  protected $_items = array();
+  protected $items = array();
 
 
   public function __construct($order_id = NULL)
@@ -59,7 +59,7 @@ class KkbEpay_Order
     if (!preg_match('/^[0-9]+$/', $id)) {
       throw new KkbEpay_Exception('Order ID can consist only of digits.');
     }
-    $this->_id = str_pad($id, 6, '0', STR_PAD_LEFT);
+    $this->id = str_pad($id, 6, '0', STR_PAD_LEFT);
     return $this;
   }
 
@@ -71,11 +71,11 @@ class KkbEpay_Order
    */
   public function setAmount($amount, $currency_code)
   {
-    if (!$this->_isSuportedCurrency($currency_code)) {
+    if (!$this->isSuportedCurrency($currency_code)) {
       throw new KkbEpay_Exception('Unsupported currency.');
     }
-    $this->_currency = $currency_code;
-    $this->_amount = $amount;
+    $this->currency = $currency_code;
+    $this->amount = $amount;
     return $this;
   }
 
@@ -86,7 +86,7 @@ class KkbEpay_Order
 
   public function setItems(array $items)
   {
-    $this->_items = array();
+    $this->items = array();
     foreach ($items as $i) {
       $this->addItem($i);
     }
@@ -95,32 +95,32 @@ class KkbEpay_Order
 
   public function addItem(KkbEpay_OrderItem $i)
   {
-    $this->_items[] = $i;
-    $i->setNumber(count($this->_items));
+    $this->items[] = $i;
+    $i->setNumber(count($this->items));
     return $this;
   }
 
   public function getId()
   {
-    return $this->_id;
+    return $this->id;
   }
 
   public function getAmount()
   {
-    return $this->_amount;
+    return $this->amount;
   }
 
   public function getCurrency()
   {
-    return $this->_currency;
+    return $this->currency;
   }
 
   public function getItems()
   {
-    return $this->_items;
+    return $this->items;
   }
 
-  protected function _isSuportedCurrency($code)
+  protected function isSuportedCurrency($code)
   {
     switch ($code) {
       case 398:  // Tenge
