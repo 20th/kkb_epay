@@ -61,10 +61,18 @@ final class KkbEpay_Key
 
   public function isValid()
   {
-    if (empty($this->key)) return FALSE;
-    if (empty($this->merchant_id)) return FALSE;
-    if (empty($this->merchant_name)) return FALSE;
-    if (empty($this->certificate_id)) return FALSE;
+    if (empty($this->key)) {
+      return FALSE;
+    }
+    if (empty($this->merchant_id)) {
+      return FALSE;
+    }
+    if (empty($this->merchant_name)) {
+      return FALSE;
+    }
+    if (empty($this->certificate_id)) {
+      return FALSE;
+    }
 
     return TRUE;
   }
