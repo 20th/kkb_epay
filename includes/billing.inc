@@ -183,9 +183,15 @@ function kkb_epay_create_order_appendix(KkbEpay_Order $order) {
  *   TRUE if document is valid, FALSE othewise.
  */
 function kkb_epay_bank_response_document_validate($document) {
-  if (substr($document, 0, 10) != '<document>') return FALSE;
-  if (substr($document, -11) != '</document>') return FALSE;
-  if (strpos($document, '</bank>') === FALSE) return FALSE;
+  if (substr($document, 0, 10) != '<document>') {
+    return FALSE;
+  }
+  if (substr($document, -11) != '</document>') {
+    return FALSE;
+  }
+  if (strpos($document, '</bank>') === FALSE) {
+    return FALSE;
+  }
 
   libxml_use_internal_errors(TRUE);
   $xml = @simplexml_load_string($document);
