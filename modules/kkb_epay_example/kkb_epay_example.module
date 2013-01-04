@@ -67,7 +67,7 @@
 define('KKB_EPAY_EXAMPLE_POINT_COST', 5);
 
 
-// Step 1.
+/* Step 1. */
 
 /**
  * Form builder. Builds a form for new order.
@@ -108,7 +108,7 @@ function kkb_epay_example_buy_points_form_submit($form, &$form_state) {
 }
 
 
-// Step 2.
+/* Step 2. */
 
 /**
  * Menu page callback.
@@ -145,7 +145,7 @@ function kkb_epay_example_pay($order_id) {
 }
 
 
-// Step 3.
+/* Step 3. */
 
 /**
  * Implements hook_kkb_epay_payment().
@@ -157,7 +157,7 @@ function kkb_epay_example_kkb_epay_payment($notification) {
 }
 
 
-// Step 4.
+/* Step 4. */
 
 /**
  * Implements hook_kkb_epay_success_page().
@@ -186,7 +186,7 @@ function kkb_epay_example_kkb_epay_failure_page($order_id) {
 }
 
 
-// Other helpers.
+/* Other helpers. */
 
 /**
  * Implements hook_menu().
