@@ -5,7 +5,7 @@ Planned features and improvements:
 3.  Add support for other currencies than tenge;
 4.  Move 90% of code into namespaced classes (have to drop PHP5.2 support to
     do that) and minimize Drupal dependence;
-5.  Add Russian translation;
+5.  <del>Add Russian translation</del>;
 6.  Add Kazakh translation;
 7.  Query 'payments monitor' to check orders statuses;
 8.  Create interface for confirming and canceling payments;
