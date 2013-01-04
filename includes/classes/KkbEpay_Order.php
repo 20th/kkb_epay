@@ -45,10 +45,11 @@ class KkbEpay_Order
   }
 
   /**
-   * Validates, sets order ID and modifies it to conform with specification
-   * requirements.
+   * Validates, sets order ID and modifies it if neccessary.
    *
-   * Order ID must consist of at least 6 digits.
+   * Order ID must consist of at least 6 digits. If this method is called with
+   * an ID that does not have a valid format, it will be modified to conform
+   * with all requirements.
    *
    * This ID must uniquely identify order on the site, as it will be sent
    * back by the processing center with the results of the operation.
