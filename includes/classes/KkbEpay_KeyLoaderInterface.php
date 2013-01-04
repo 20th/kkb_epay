@@ -45,8 +45,8 @@ interface KkbEpay_KeyLoaderInterface
    *   FALSE, if real payment is performed. In this case, the real private key
    *          must be loaded.
    *
-   * @return
-   *   NULL
+   * @return NULL
+   *   Nothing.
    */
   public function setDebug($flag);
 
