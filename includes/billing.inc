@@ -74,7 +74,7 @@ function kkb_epay_sign_message($message) {
  * @param text $signature
  *   Base64-encoded signature of the message.
  *
- * @return boolean
+ * @return bool
  *   TRUE if signature was verified without errors.
  *   FALSE otherwise.
  */
@@ -179,7 +179,7 @@ function kkb_epay_create_order_appendix(KkbEpay_Order $order) {
  * @param string $document
  *   Response received from the center.
  *
- * @return boolean
+ * @return bool
  *   TRUE if document is valid, FALSE othewise.
  */
 function kkb_epay_bank_response_document_validate($document) {

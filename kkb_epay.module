@@ -100,7 +100,7 @@ function kkb_epay_billing_statement($form, &$form_state, KkbEpay_Order $order, $
 /**
  * Returns current debugging status.
  *
- * @return boolean
+ * @return bool
  *   TRUE if debugging mode is turned on.
  *   FALSE if debugging mode is turned off.
  */
