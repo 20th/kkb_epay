@@ -55,7 +55,7 @@ final class KkbEpay_Checker
    * @param string $signature
    *   Verified signature as a binary string.
    *
-   * @return boolean
+   * @return bool
    *   TRUE if signature is corrent.
    *   FALSE if signature was not verified.
    */

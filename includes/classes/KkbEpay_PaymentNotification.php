@@ -65,7 +65,7 @@ class KkbEpay_PaymentNotification
    * Order ID must consist of at least 6 digits, so it may contain few padding
    * zeros at the begining.
    *
-   * @param boolean $remove_padding
+   * @param bool $remove_padding
    *   - TRUE, padding zeros are removed from the beginning;
    *   - FALSE, order ID is returned as is.
    */
