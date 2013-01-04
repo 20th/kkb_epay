@@ -23,8 +23,7 @@
 /**
  * Bank certificates' interface.
  */
-interface KkbEpay_BankCertificateInterface
-{
+interface KkbEpay_BankCertificateInterface {
 
   /**
    * Must return a valid certificate as a string.

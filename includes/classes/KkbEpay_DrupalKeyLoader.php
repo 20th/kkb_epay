@@ -24,14 +24,12 @@
  * Main key loader that fetches private keys from Drupal's variables system
  * where it is stored by the 'kkb_epay' module.
  */
-class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface
-{
+class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface {
 
   protected $debug = FALSE;
 
 
-  public function getKey()
-  {
+  public function getKey() {
     $data = $this->loadKeyData();
     return new KkbEpay_Key(
       $data['key'],
@@ -42,13 +40,11 @@ class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface
     );
   }
 
-  public function setDebug($flag)
-  {
+  public function setDebug($flag) {
     $this->debug = (bool) $flag;
   }
 
-  public function validateKey()
-  {
+  public function validateKey() {
     try {
       return $this->getKey()->isValid();
     }
@@ -58,8 +54,7 @@ class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface
   }
 
 
-  protected function loadKeyData()
-  {
+  protected function loadKeyData() {
     $variant = 'kkb_epay_private_key_' . ($this->debug ? 'debug' : 'live');
 
     if (!($key_data = variable_get($variant, NULL))) {
@@ -72,8 +67,7 @@ class KkbEpay_DrupalKeyLoader implements KkbEpay_KeyLoaderInterface
     return $unpacked;
   }
 
-  protected function unpack($data)
-  {
+  protected function unpack($data) {
     return unserialize(base64_decode(preg_replace('/\s/', '', $data)));
   }
 

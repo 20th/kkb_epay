@@ -23,8 +23,7 @@
 /**
  * Private key loaders' interface.
  */
-interface KkbEpay_KeyLoaderInterface
-{
+interface KkbEpay_KeyLoaderInterface {
 
   /**
    * Must return an instance of the KkbEpay_Key class.

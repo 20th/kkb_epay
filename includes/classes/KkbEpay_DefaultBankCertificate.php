@@ -35,14 +35,12 @@
  * it is a public key that can be shared with any party, unlike a private
  * key, which must be kept in a complete secret.
  */
-class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
-{
+class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface {
 
   protected $filepath;
 
 
-  public function __construct($filepath = NULL)
-  {
+  public function __construct($filepath = NULL) {
     if (isset($filepath)) {
       $this->setCertificateFilepath($filepath);
     }
@@ -51,8 +49,7 @@ class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
   /**
    * Implements KkbEpay_BankCertificateInterface::getCertificate().
    */
-  public function getCertificate()
-  {
+  public function getCertificate() {
     $file = $this->getCertificateFilepath();
     return trim(file_get_contents($file));
   }
@@ -69,8 +66,7 @@ class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
    *   certificate is such binary blob. Furthermore, copyright status of the
    *   certificate is not clear.
    */
-  public function getCertificateFilepath()
-  {
+  public function getCertificateFilepath() {
     if (!isset($this->filepath)) {
       $default_path = __DIR__ . '/../../data/kkb_certificate.pem';
       $this->setCertificateFilepath($default_path);
@@ -81,8 +77,7 @@ class KkbEpay_DefaultBankCertificate implements KkbEpay_BankCertificateInterface
   /**
    * Changes path to the PEM-encoded cetrificate file.
    */
-  public function setCertificateFilepath($filepath)
-  {
+  public function setCertificateFilepath($filepath) {
     if (!is_file($filepath) || !is_readable($filepath)) {
       throw new KkbEpay_Exception('File with default bank certificate cannot be read.');
     }

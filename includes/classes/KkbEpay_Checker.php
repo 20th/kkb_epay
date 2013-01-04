@@ -23,14 +23,12 @@
 /**
  * Signature checker.
  */
-final class KkbEpay_Checker
-{
+final class KkbEpay_Checker {
 
   private $certificate;
 
 
-  public function __construct(KkbEpay_BankCertificateInterface $certificate = NULL)
-  {
+  public function __construct(KkbEpay_BankCertificateInterface $certificate = NULL) {
     if (empty($certificate)) {
       $certificate = new KkbEpay_DefaultBankCertificate();
     }
@@ -59,8 +57,7 @@ final class KkbEpay_Checker
    *   TRUE if signature is corrent.
    *   FALSE if signature was not verified.
    */
-  public function check($message, $signature)
-  {
+  public function check($message, $signature) {
     if (empty($message)) {
       throw new KkbEpay_Exception('Message cannot be empty.');
     }
@@ -75,14 +72,12 @@ final class KkbEpay_Checker
   /**
    * Decodes signature with base64 and checks with the check() method.
    */
-  public function check64($message, $signature)
-  {
+  public function check64($message, $signature) {
     return $this->check($message, base64_decode($signature));
   }
 
 
-  private function reverse($data)
-  {
+  private function reverse($data) {
     return strrev($data);
   }
 

@@ -26,8 +26,7 @@
  * All setters in this class perform input validation. If any validation
  * constraint is violated, a KkbEpay_KeyException is thrown.
  */
-final class KkbEpay_Key
-{
+final class KkbEpay_Key {
 
   private $key;
 
@@ -40,8 +39,7 @@ final class KkbEpay_Key
   private $certificate_id;
 
 
-  public function __construct($key = NULL, $pwd = NULL, $c_id = NULL, $m_id = NULL, $m_name = NULL)
-  {
+  public function __construct($key = NULL, $pwd = NULL, $c_id = NULL, $m_id = NULL, $m_name = NULL) {
     if ($key) {
       $this->setKey($key);
     }
@@ -59,8 +57,7 @@ final class KkbEpay_Key
     }
   }
 
-  public function isValid()
-  {
+  public function isValid() {
     if (empty($this->key)) {
       return FALSE;
     }
@@ -77,34 +74,21 @@ final class KkbEpay_Key
     return TRUE;
   }
 
-  public function setKey($key)
-  {
-    $rsa_begin = '-----BEGIN RSA PRIVATE KEY-----';
-    $rsa_end   = '-----END RSA PRIVATE KEY-----';
-
+  public function setKey($key) {
     if (!is_string($key)) {
       throw new KkbEpay_KeyException('Key must be a string.');
     }
-    if (($begin_pos = strpos($key, $rsa_begin)) === FALSE) {
-      throw new KkbEpay_KeyException('Key does not contain a correct RSA key declaration.');
+    if (substr($key, 0, 31) != '-----BEGIN RSA PRIVATE KEY-----') {
+      throw new KkbEpay_KeyException('Key does not start with a correct RSA key declaration.');
     }
-    if (($end_pos = strpos($key, $rsa_end)) === FALSE) {
-      throw new KkbEpay_KeyException('Key does not contain a correct RSA key ending.');
+    if (substr($key, -29) != '-----END RSA PRIVATE KEY-----') {
+      throw new KkbEpay_KeyException('Key does not end with a correct RSA key declaration.');
     }
-    if ($end_pos < $begin_pos) {
-      throw new KkbEpay_KeyException('This key is invalid.');
-    }
-    $key = substr(substr($key, 0, $end_pos + strlen($rsa_end)), $begin_pos);
-
-    if (strlen($key) < strlen($rsa_begin) + strlen($rsa_end) + 1) {
-      throw new KkbEpay_KeyException('This key in invalid.');
-    }
-    $this->key = $key;
+    $this->key = trim($key);
     return $this;
   }
 
-  public function setPassword($pwd)
-  {
+  public function setPassword($pwd) {
     if (!is_string($pwd)) {
       throw new KkbEpay_KeyException('Password must be a string.');
     }
@@ -112,8 +96,7 @@ final class KkbEpay_Key
     return $this;
   }
 
-  public function setMerchantId($id)
-  {
+  public function setMerchantId($id) {
     if (!is_string($id)) {
       throw new KkbEpay_KeyException('Merchant ID must be a string.');
     }
@@ -124,8 +107,7 @@ final class KkbEpay_Key
     return $this;
   }
 
-  public function setMerchantName($name)
-  {
+  public function setMerchantName($name) {
     if (!is_string($name)) {
       throw new KkbEpay_KeyException('Merchant name must be a string.');
     }
@@ -139,8 +121,7 @@ final class KkbEpay_Key
     return $this;
   }
 
-  public function setCertificateId($id)
-  {
+  public function setCertificateId($id) {
     if (!is_string($id)) {
       throw new KkbEpay_KeyException('Certificate ID must be a string.');
     }
@@ -151,28 +132,23 @@ final class KkbEpay_Key
     return $this;
   }
 
-  public function getKey()
-  {
+  public function getKey() {
     return $this->key;
   }
 
-  public function getPassword()
-  {
+  public function getPassword() {
     return empty($this->password) ? '' : $this->password;
   }
 
-  public function getMerchantId()
-  {
+  public function getMerchantId() {
     return $this->merchant_id;
   }
 
-  public function getMerchantName()
-  {
+  public function getMerchantName() {
     return $this->merchant_name;
   }
 
-  public function getCertificateId()
-  {
+  public function getCertificateId() {
     return $this->certificate_id;
   }
 

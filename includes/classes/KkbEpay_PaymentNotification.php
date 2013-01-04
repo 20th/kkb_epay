@@ -26,8 +26,7 @@
  * @notice
  *   Object properties are immutable.
  */
-class KkbEpay_PaymentNotification
-{
+class KkbEpay_PaymentNotification {
 
   protected $order_id;
 
@@ -40,8 +39,7 @@ class KkbEpay_PaymentNotification
   protected $approval_code;
 
 
-  public function __construct(array $params = array())
-  {
+  public function __construct(array $params = array()) {
     if (isset($params['order_id'])) {
       $this->order_id = $params['order_id'];
     }
@@ -69,8 +67,7 @@ class KkbEpay_PaymentNotification
    *   - TRUE, padding zeros are removed from the beginning;
    *   - FALSE, order ID is returned as is.
    */
-  public function getOrderId($remove_padding = TRUE)
-  {
+  public function getOrderId($remove_padding = TRUE) {
     $id = $this->order_id;
     if ($remove_padding) {
       return ltrim($id, '0');
@@ -78,23 +75,19 @@ class KkbEpay_PaymentNotification
     return $id;
   }
 
-  public function getTimestamp()
-  {
+  public function getTimestamp() {
     return $this->timestamp;
   }
 
-  public function getAmount()
-  {
+  public function getAmount() {
     return $this->amount;
   }
 
-  public function getReference()
-  {
+  public function getReference() {
     return $this->reference;
   }
 
-  public function getApprovalCode()
-  {
+  public function getApprovalCode() {
     return $this->approval_code;
   }
 

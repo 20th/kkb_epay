@@ -25,15 +25,13 @@
  *
  * This private key works only with the sandbox gateway.
  */
-class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
-{
+class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface {
 
   protected $debug = FALSE;
   protected $filepath;
 
 
-  public function getKey()
-  {
+  public function getKey() {
     if (!$this->debug) {
       throw new KkbEpay_KeyException('Debug key can be loaded only when debugging mode is turned on. Call setDebug() method with TRUE parameter.');
     }
@@ -48,13 +46,11 @@ class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
     return $key;
   }
 
-  public function setDebug($flag)
-  {
+  public function setDebug($flag) {
     $this->debug = (bool) $flag;
   }
 
-  public function validateKey()
-  {
+  public function validateKey() {
     return TRUE;
   }
 
@@ -69,8 +65,7 @@ class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
    *   file is licenced under GPL and cannot include binary blobs. Encoded PEM
    *   key is such binary blob. Furthermore, its copyright status is not clear.
    */
-  public function getKeyFilepath()
-  {
+  public function getKeyFilepath() {
     if (!isset($this->filepath)) {
       $default_path = __DIR__ . '/../../data/debug_private_key.pem';
       $this->setKeyFilepath($default_path);
@@ -81,8 +76,7 @@ class KkbEpay_DebugKeyLoader implements KkbEpay_KeyLoaderInterface
   /**
    * Changes path to the PEM-encoded private key file.
    */
-  public function setKeyFilepath($filepath)
-  {
+  public function setKeyFilepath($filepath) {
     if (!is_file($filepath) || !is_readable($filepath)) {
       throw new KkbEpay_Exception('File with debug private key cannot be read.');
     }

@@ -23,14 +23,12 @@
 /**
  * Main signer of messages.
  */
-final class KkbEpay_Sign
-{
+final class KkbEpay_Sign {
 
   private $key;
 
 
-  public function __construct(KkbEpay_Key $key)
-  {
+  public function __construct(KkbEpay_Key $key) {
     if (!$key->isValid()) {
       throw new KkbEpay_Exception('Provided key is not valid.');
     }
@@ -54,8 +52,7 @@ final class KkbEpay_Sign
    * @return string
    *   Signature as a binary string.
    */
-  public function sign($message)
-  {
+  public function sign($message) {
     if (empty($message)) {
       throw new KkbEpay_Exception('Message cannot be empty.');
     }
@@ -74,14 +71,12 @@ final class KkbEpay_Sign
   /**
    * Signs the message with sign() and encodes signature with base64.
    */
-  public function sign64($message)
-  {
+  public function sign64($message) {
     return base64_encode($this->sign($message));
   }
 
 
-  private function reverse($data)
-  {
+  private function reverse($data) {
     return strrev($data);
   }
 

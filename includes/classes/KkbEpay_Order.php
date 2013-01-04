@@ -25,8 +25,7 @@
  * processing center. Contains an absolute minimal amount on information to
  * create a payment document for the processing center.
  */
-class KkbEpay_Order
-{
+class KkbEpay_Order {
 
   protected $id;
 
@@ -37,8 +36,7 @@ class KkbEpay_Order
   protected $items = array();
 
 
-  public function __construct($order_id = NULL)
-  {
+  public function __construct($order_id = NULL) {
     if (!empty($order_id)) {
       $this->setId($order_id);
     }
@@ -54,8 +52,7 @@ class KkbEpay_Order
    * This ID must uniquely identify order on the site, as it will be sent
    * back by the processing center with the results of the operation.
    */
-  public function setId($id)
-  {
+  public function setId($id) {
     $id = (string) $id;
     if (!preg_match('/^[0-9]+$/', $id)) {
       throw new KkbEpay_Exception('Order ID can consist only of digits.');
@@ -70,8 +67,7 @@ class KkbEpay_Order
    * Currency must be specified with its code. Only few currencies are
    * supported.
    */
-  public function setAmount($amount, $currency_code)
-  {
+  public function setAmount($amount, $currency_code) {
     if (!$this->isSuportedCurrency($currency_code)) {
       throw new KkbEpay_Exception('Unsupported currency.');
     }
@@ -80,13 +76,11 @@ class KkbEpay_Order
     return $this;
   }
 
-  public function setTengeAmount($amount)
-  {
+  public function setTengeAmount($amount) {
     return $this->setAmount($amount, 398);
   }
 
-  public function setItems(array $items)
-  {
+  public function setItems(array $items) {
     $this->items = array();
     foreach ($items as $i) {
       $this->addItem($i);
@@ -94,35 +88,29 @@ class KkbEpay_Order
     return $this;
   }
 
-  public function addItem(KkbEpay_OrderItem $i)
-  {
+  public function addItem(KkbEpay_OrderItem $i) {
     $this->items[] = $i;
     $i->setNumber(count($this->items));
     return $this;
   }
 
-  public function getId()
-  {
+  public function getId() {
     return $this->id;
   }
 
-  public function getAmount()
-  {
+  public function getAmount() {
     return $this->amount;
   }
 
-  public function getCurrency()
-  {
+  public function getCurrency() {
     return $this->currency;
   }
 
-  public function getItems()
-  {
+  public function getItems() {
     return $this->items;
   }
 
-  protected function isSuportedCurrency($code)
-  {
+  protected function isSuportedCurrency($code) {
     switch ($code) {
       // Tenge.
       case 398:
