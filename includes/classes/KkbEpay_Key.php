@@ -79,16 +79,27 @@ final class KkbEpay_Key
 
   public function setKey($key)
   {
+    $rsa_begin = '-----BEGIN RSA PRIVATE KEY-----';
+    $rsa_end   = '-----END RSA PRIVATE KEY-----';
+
     if (!is_string($key)) {
       throw new KkbEpay_KeyException('Key must be a string.');
     }
-    if (substr($key, 0, 31) != '-----BEGIN RSA PRIVATE KEY-----') {
-      throw new KkbEpay_KeyException('Key does not start with a correct RSA key declaration.');
+    if (($begin_pos = strpos($key, $rsa_begin)) === FALSE) {
+      throw new KkbEpay_KeyException('Key does not contain a correct RSA key declaration.');
     }
-    if (substr($key, -29) != '-----END RSA PRIVATE KEY-----') {
-      throw new KkbEpay_KeyException('Key does not end with a correct RSA key declaration.');
+    if (($end_pos = strpos($key, $rsa_end)) === FALSE) {
+      throw new KkbEpay_KeyException('Key does not contain a correct RSA key ending.');
     }
-    $this->key = trim($key);
+    if ($end_pos < $begin_pos) {
+      throw new KkbEpay_KeyException('This key is invalid.');
+    }
+    $key = substr(substr($key, 0, $end_pos + strlen($rsa_end)), $begin_pos);
+
+    if (strlen($key) < strlen($rsa_begin) + strlen($rsa_end) + 1) {
+      throw new KkbEpay_KeyException('This key in invalid.');
+    }
+    $this->key = $key;
     return $this;
   }
 
