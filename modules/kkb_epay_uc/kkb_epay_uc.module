@@ -145,7 +145,7 @@ function kkb_epay_uc_kkb_epay_success_page($id) {
         $order->data['kkb_epay_payment_confirmation']['saved'] = TRUE;
         uc_order_save($order);
 
-        return _kkb_epay_uc_complete_sale($order);
+        return _kkb_epay_uc_complete_sale($order, $confirmation);
       }
     }
   }
@@ -171,7 +171,7 @@ function kkb_epay_uc_kkb_epay_success_page($id) {
  * autologin, are Ubercart's features and users expect them to work properly.
  * That is why it is vert important to preserve its functionality.
  */
-function _kkb_epay_uc_complete_sale($order) {
+function _kkb_epay_uc_complete_sale($order, $confirmation) {
   $build = uc_cart_complete_sale($order, variable_get('uc_new_customer_login', FALSE));
   unset($_SESSION['uc_checkout'][$order->order_id], $_SESSION['cart_order']);
 
