@@ -110,7 +110,7 @@ function kkb_epay_uc_kkb_epay_payment(KkbEpay_PaymentNotification $notification)
   $order = uc_order_load($notification->getOrderId());
   if ($order && empty($order->data['kkb_epay_payment_confirmation']['saved'])) {
     $order->data['kkb_epay_payment_confirmation'] = array(
-      'saved'     => FALSE,
+      'saved'     => TRUE,
       'reference' => $notification->getReference(),
       'amount'    => $notification->getAmount(),
       'timestamp' => $notification->getTimestamp(),
@@ -122,6 +122,14 @@ function kkb_epay_uc_kkb_epay_payment(KkbEpay_PaymentNotification $notification)
       array('%s' => $notification->getReference())
     );
     uc_order_comment_save($order->order_id, $order->uid, $message, 'order', $order->order_status, TRUE);
+
+    $amount = $notification->getAmount();
+    $msg = t(
+      'Order has been payed with KKB Epay. Payment reference number is %reference',
+      array('%reference' => $notification->getReference())
+    );
+    $time = $notification->getTimestamp();
+    uc_payment_enter($order->order_id, 'kkb_epay', $amount, 0, array(), $msg, $time);
   }
 }
 
@@ -140,13 +148,7 @@ function kkb_epay_uc_kkb_epay_success_page($id) {
     $order = uc_order_load($id);
 
     if (!empty($order->data['kkb_epay_payment_confirmation'])) {
-      if (!$order->data['kkb_epay_payment_confirmation']['saved']) {
-        $confirmation = $order->data['kkb_epay_payment_confirmation'];
-        $order->data['kkb_epay_payment_confirmation']['saved'] = TRUE;
-        uc_order_save($order);
-
-        return _kkb_epay_uc_complete_sale($order, $confirmation);
-      }
+      return _kkb_epay_uc_complete_sale($order);
     }
   }
 }
@@ -171,21 +173,12 @@ function kkb_epay_uc_kkb_epay_success_page($id) {
  * autologin, are Ubercart's features and users expect them to work properly.
  * That is why it is vert important to preserve its functionality.
  */
-function _kkb_epay_uc_complete_sale($order, $confirmation) {
+function _kkb_epay_uc_complete_sale($order) {
   $build = uc_cart_complete_sale($order, variable_get('uc_new_customer_login', FALSE));
   unset($_SESSION['uc_checkout'][$order->order_id], $_SESSION['cart_order']);
 
   // Add a comment to let sales team know this came in through the site.
   uc_order_comment_save($order->order_id, 0, t('Order created through website.'), 'admin');
-
-  $id = $order->order_id;
-  $amount = $confirmation['amount'];
-  $msg = t(
-    'Order has been payed with KKB Epay. Payment reference number is %reference',
-    array('%reference' => $confirmation['reference'])
-  );
-  $time = $confirmation['timestamp'];
-  uc_payment_enter($id, 'kkb_epay', $amount, 0, $confirmation, $msg, $time);
 
   $page = variable_get('uc_cart_checkout_complete_page', '');
   if (!empty($page)) {
