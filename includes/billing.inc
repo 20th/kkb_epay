@@ -227,7 +227,10 @@ function kkb_epay_bank_response_document_parse($document) {
 
   $xpath = $xml->xpath('//results/@timestamp');
   if ($elem = array_shift($xpath)) {
-    $timestamp = strtotime((string) $elem->order_id);
+    $timestamp_parsed = strtotime((string) $elem->order_id);
+    if ($timestamp_parsed) {
+      $timestamp = $timestamp_parsed;
+    }
   }
 
   $xpath = $xml->xpath('//payment/@amount');
