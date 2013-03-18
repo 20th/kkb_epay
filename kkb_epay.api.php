@@ -30,7 +30,7 @@ function hook_kkb_epay_payment(KkbEpay_PaymentNotification $notification) {
     // worth checking.
     return;
   }
-  if ($oder->payed) {
+  if ($order->payed) {
     // Order is already payed, notification was repeated. Return early because
     // we do not want to send two confirmation emails.
     return;
