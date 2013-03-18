@@ -3,7 +3,7 @@ REQUIREMENTS
 
 Before using this module, you must receive your personal private key from
 the Epay provider. Without a private key, the bank will refuse to accept
-any payments from you website.
+any payments from your website.
 
 Please go to https://epay.kkb.kz/, where you can find Terms of Use and
 provider's contacts.
@@ -18,7 +18,7 @@ If you plan to use this module as a payment method with Ubercart or Commerce,
 naturally, you have to install one of those modules. Other than that, this
 module does not have any dependencies or configuration requirements.
 
-1. Install this module as usually.
+1. Install this module as usual.
 2. Go to admin/config/services/epay/private-key and input information about
    your private key that you have received from the bank.
 3. Follow the instructions on the configuration page: completely copy the
