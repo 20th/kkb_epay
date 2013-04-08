@@ -39,7 +39,7 @@ interface KkbEpay_KeyLoaderInterface
   /**
    * Must set debugging mode.
    *
-   * @param bool $flag
+   * @param boolean $flag
    *   TRUE, if payment debugging is performed. In this case, the loader must
    *         load a special debugging key;
    *   FALSE, if real payment is performed. In this case, the real private key
@@ -53,7 +53,7 @@ interface KkbEpay_KeyLoaderInterface
   /**
    * Must check that the private key can be loaded and is valid.
    *
-   * @return bool
+   * @return boolean
    *   TRUE if private key is fine;
    *   FALSE if there are any problems with the key.
    */
