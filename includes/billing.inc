@@ -111,15 +111,15 @@ function kkb_epay_create_signed_order(KkbEpay_Order $order) {
   $order_elem = $dom->createElement('order');
   $department = $dom->createElement('department');
 
-  $merchant   ->setAttribute('cert_id',     $key->getCertificateId());
-  $merchant   ->setAttribute('name',        $key->getMerchantName());
-  $department ->setAttribute('merchant_id', $key->getMerchantId());
-  $department ->setAttribute('amount',      $order->getAmount());
-  $order_elem ->setAttribute('amount',      $order->getAmount());
-  $order_elem ->setAttribute('currency',    $order->getCurrency());
-  $order_elem ->setAttribute('order_id',    $order->getId());
-  $department ->setAttribute('abonent_id',  '');
-  $department ->setAttribute('terminal',    '');
+  $merchant->setAttribute('cert_id', $key->getCertificateId());
+  $merchant->setAttribute('name', $key->getMerchantName());
+  $department->setAttribute('merchant_id', $key->getMerchantId());
+  $department->setAttribute('amount', $order->getAmount());
+  $order_elem->setAttribute('amount', $order->getAmount());
+  $order_elem->setAttribute('currency', $order->getCurrency());
+  $order_elem->setAttribute('order_id', $order->getId());
+  $department->setAttribute('abonent_id', '');
+  $department->setAttribute('terminal', '');
 
   $dom->appendChild($document);
   $document->appendChild($merchant);
@@ -161,10 +161,10 @@ function kkb_epay_create_order_appendix(KkbEpay_Order $order) {
   $document = $dom->createElement('document');
   foreach ($order->getItems() as $i) {
     $item = $dom->createElement('item');
-    $item->setAttribute('number',   $i->getNumber());
-    $item->setAttribute('name',     $i->getName());
+    $item->setAttribute('number', $i->getNumber());
+    $item->setAttribute('name', $i->getName());
     $item->setAttribute('quantity', $i->getQuantity());
-    $item->setAttribute('amount',   $i->getAmount());
+    $item->setAttribute('amount', $i->getAmount());
     $document->appendChild($item);
   }
 
