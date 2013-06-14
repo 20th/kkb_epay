@@ -256,3 +256,73 @@ msgstr "Файл с закрытым ключом называется <em>&lt;�
 #: includes/kkb_epay.admin.inc:161
 msgid "You must upload file with the private key."
 msgstr "Вы должны загрузить файл с закрытым ключом."
+
+#: includes/classes/KkbEpay_DebugKeyLoader.php:36
+msgid ""
+"Debug key can be loaded only when debugging mode is turned on. Call "
+"setDebug() method with TRUE parameter."
+msgstr ""
+"Отладочный ключ может быть загружен только при условии, что включён "
+"режим отладки. Вызовите метод setDebug() с параметром TRUE."
+
+#: includes/classes/KkbEpay_DrupalKeyLoader.php:61
+msgid "Private key does not exist as a system variable."
+msgstr "Закрытый ключ не сохранён в системной переменной."
+
+#: includes/classes/KkbEpay_DrupalKeyLoader.php:64
+msgid "Private key could not be unpacked."
+msgstr "Закрытый ключ не может быть распакован."
+
+#: includes/classes/KkbEpay_Key.php:79
+msgid "Key must be a string."
+msgstr "Ключ должен быть строкой."
+
+#: includes/classes/KkbEpay_Key.php:82
+msgid "Key is not valid, it does not contain a correct RSA key declaration."
+msgstr "Ключ некорректен, так как не содержит определение RSA."
+
+#: includes/classes/KkbEpay_Key.php:88 includes/classes/KkbEpay_Key.php:94
+msgid "Key is not valid."
+msgstr "Ключ некорректен."
+
+#: includes/classes/KkbEpay_Key.php:103
+msgid "Password must be a string."
+msgstr "Пароль должен быть строкой."
+
+#: includes/classes/KkbEpay_Key.php:111
+msgid "Merchant ID must be a string."
+msgstr "ID продавца должен быть строкой."
+
+#: includes/classes/KkbEpay_Key.php:114
+msgid ""
+"Merchant ID does not match expected format. It must consist of 8 digits."
+msgstr ""
+"ID продавца имеет неверный формат. Он должен состоять из 8 цифр."
+
+#: includes/classes/KkbEpay_Key.php:122
+msgid "Merchant name must be a string."
+msgstr "Имя продавца должно быть строкой."
+
+#: includes/classes/KkbEpay_Key.php:125
+msgid "Merchant name is too long. It cannot be longer than 255 characters."
+msgstr "Имя продавца слишком длинное. Оно не может быть длиннее 255 символов."
+
+#: includes/classes/KkbEpay_Key.php:128
+msgid ""
+"Merchant name does not match expected format. It can consist only of English "
+"letters, digits, '-', '_' and space."
+msgstr ""
+"Имя продавца имеет неверный формат. Оно может состоять только из букв "
+"английского алфавита, цифр, знаков '-' и '_', и пробелов."
+
+#: includes/classes/KkbEpay_Key.php:136
+msgid "Certificate ID must be a string."
+msgstr "ID сертификата должен быть строкой."
+
+#: includes/classes/KkbEpay_Key.php:139
+msgid ""
+"Certificate ID does not match expected format. It must be exactly 10 "
+"characters long and consist of hexadecimal digits."
+msgstr ""
+"ID сертификата имеет неверный формат. Он должен состоять ровно из 10 "
+"цифр и букв A-F."
