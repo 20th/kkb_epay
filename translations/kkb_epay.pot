@@ -265,3 +265,70 @@ msgstr ""
 #: includes/kkb_epay.admin.inc:161
 msgid "You must upload file with the private key."
 msgstr ""
+
+#: includes/classes/KkbEpay_DebugKeyLoader.php:36
+msgid ""
+"Debug key can be loaded only when debugging mode is turned on. Call "
+"setDebug() method with TRUE parameter."
+msgstr ""
+
+#: includes/classes/KkbEpay_DrupalKeyLoader.php:61
+msgid "Private key does not exist as a system variable."
+msgstr ""
+
+#: includes/classes/KkbEpay_DrupalKeyLoader.php:64
+msgid "Private key could not be unpacked."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:79
+msgid "Key must be a string."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:82
+msgid "Key is not valid, it does not contain a correct RSA key declaration."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:85
+msgid "Key is not valid, is does not contain a correct RSA key declaration."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:88 includes/classes/KkbEpay_Key.php:94
+msgid "Key is not valid."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:103
+msgid "Password must be a string."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:111
+msgid "Merchant ID must be a string."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:114
+msgid ""
+"Merchant ID does not match expected format. It must consist of 8 digits."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:122
+msgid "Merchant name must be a string."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:125
+msgid "Merchant name is too long. It cannot be longer than 255 characters."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:128
+msgid ""
+"Merchant name does not match expected format. It can consist only of English "
+"letters, digits, '-', '_' and space."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:136
+msgid "Certificate ID must be a string."
+msgstr ""
+
+#: includes/classes/KkbEpay_Key.php:139
+msgid ""
+"Certificate ID does not match expected format. It must be exactly 10 "
+"characters long and consist of hexadecimal digits."
+msgstr ""
