@@ -288,10 +288,6 @@ msgstr ""
 msgid "Key is not valid, it does not contain a correct RSA key declaration."
 msgstr ""
 
-#: includes/classes/KkbEpay_Key.php:85
-msgid "Key is not valid, is does not contain a correct RSA key declaration."
-msgstr ""
-
 #: includes/classes/KkbEpay_Key.php:88 includes/classes/KkbEpay_Key.php:94
 msgid "Key is not valid."
 msgstr ""

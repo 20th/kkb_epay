@@ -82,7 +82,7 @@ final class KkbEpay_Key {
       throw new KkbEpay_KeyException('Key is not valid, it does not contain a correct RSA key declaration.');
     }
     if (FALSE === $end = strpos($key, '-----END RSA PRIVATE KEY-----')) {
-      throw new KkbEpay_KeyException('Key is not valid, is does not contain a correct RSA key declaration.');
+      throw new KkbEpay_KeyException('Key is not valid, it does not contain a correct RSA key declaration.');
     }
     if ($end < $start) {
       throw new KkbEpay_KeyException('Key is not valid.');
