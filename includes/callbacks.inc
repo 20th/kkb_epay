@@ -29,9 +29,9 @@ function kkb_epay_callback_back_success($id) {
   $page = module_invoke_all('kkb_epay_success_page', $id);
   if (empty($page)) {
     $page['message'] = array(
-      '#prefix' => '<p>',
-      '#markup' => t('<strong>Thank you, you payment was successfully accepted.</strong>'),
-      '#suffix' => '</p>',
+      '#prefix' => '<p><strong>',
+      '#markup' => t('Thank you, you payment was successfully accepted.'),
+      '#suffix' => '</strong></p>',
     );
     $page['return'] = array(
       '#prefix' => '<p>',
@@ -49,9 +49,9 @@ function kkb_epay_callback_back_failure($id) {
   $page = module_invoke_all('kkb_epay_failure_page', $id);
   if (empty($page)) {
     $page['message'] = array(
-      '#prefix' => '<p>',
-      '#markup' => t('<strong>Unfortunately your payment was not completed.</strong>'),
-      '#suffix' => '</p>',
+      '#prefix' => '<p><strong>',
+      '#markup' => t('Unfortunately your payment was not completed.'),
+      '#suffix' => '</strong></p>',
     );
     $page['return'] = array(
       '#prefix' => '<p>',

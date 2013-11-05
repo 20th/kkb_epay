@@ -122,16 +122,16 @@ msgid "There is a problem with the certificate. Check logs for details."
 msgstr "Возникла проблема с сертификатор. Подробности смотрите в логах."
 
 #: includes/callbacks.inc:34
-msgid "<strong>Thank you, you payment was successfully accepted.</strong>"
-msgstr "<strong>Спасибо, платёж проведён успешно.</strong>"
+msgid "Thank you, you payment was successfully accepted."
+msgstr "Спасибо, платёж проведён успешно."
 
 #: includes/callbacks.inc:39;59
 msgid "Back to front page."
 msgstr "На главную."
 
 #: includes/callbacks.inc:54
-msgid "<strong>Unfortunately your payment was not completed.</strong>"
-msgstr "<strong>К сожалению, платёж не был закончен.</strong>"
+msgid "Unfortunately your payment was not completed."
+msgstr "К сожалению, платёж не был закончен."
 
 #: includes/kkb_epay.admin.inc:34
 msgid "Put KKB Epay module into debugging mode"
