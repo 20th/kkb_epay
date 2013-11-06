@@ -46,10 +46,14 @@ function kkb_epay_commerce_commerce_payment_method_info() {
 function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_method) {
   global $user;
 
-  // FIXME stub.
-  $order = new KkbEpay_Order($order->order_id);
+  $order_item_name = t('Order #@order_id on @sitename', array('@order_id' => $order->id, '@sitename' => variable_get('site_name')));
+  $amount = $order->commerce_order_total['und'][0]['amount'];
 
-  $form = kkb_epay_billing_statement($form, $form_state, $order, $user);
+  $kkb_order = new KkbEpay_Order($order->order_id);
+  $kkb_order->setTengeAmount($amount);
+  $kkb_order->addItem(new KkbEpay_OrderItem($order_item_name, $amount));
+
+  $form = kkb_epay_billing_statement($form, $form_state, $kkb_order, $user);
   return $form;
 }
 
