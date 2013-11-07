@@ -123,7 +123,7 @@ msgid "There is a problem with the certificate. Check logs for details."
 msgstr ""
 
 #: includes/callbacks.inc:34
-msgid "Thank you, you payment was successfully accepted."
+msgid "Thank you, your payment was successfully accepted."
 msgstr ""
 
 #: includes/callbacks.inc:39;59

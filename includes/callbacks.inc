@@ -30,7 +30,7 @@ function kkb_epay_callback_back_success($id) {
   if (empty($page)) {
     $page['message'] = array(
       '#prefix' => '<p><strong>',
-      '#markup' => t('Thank you, you payment was successfully accepted.'),
+      '#markup' => t('Thank you, your payment was successfully accepted.'),
       '#suffix' => '</strong></p>',
     );
     $page['return'] = array(
