@@ -103,5 +103,54 @@ function kkb_epay_commerce_redirect_form_submit($order, $payment_method) {
  * Implements hook_kkb_epay_payment().
  */
 function kkb_epay_uc_kkb_epay_payment(KkbEpay_PaymentNotification $notification) {
-  // FIXME stub.
+  $method_id = 'kkb_epay_payment';
+
+  $order = commerce_order_load($notification->getOrderId());
+  if (!$order) {
+    return;
+  }
+  $payment_method = commerce_payment_method_instance_load($order->data['payment_method']);
+  if (!$payment_method) {
+    return;
+  }
+
+  $remote_id = $notification->getReference();
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'commerce_payment_transaction');
+  $query->propertyCondition('order_id', $order->order_id);
+  $query->propertyCondition('payment_method', $method_id);
+  $query->propertyCondition('remote_id', $remote_id);
+  $entities = $query->execute();
+
+  if (!empty($entities['commerce_payment_transaction'])) {
+    // This payment notification has already been processed. Replay atack?..
+    return;
+  }
+
+  $amount = $order->commerce_order_total['und'][0]['amount'];
+  $currency = $order->commerce_order_total['und'][0]['currency_code'];
+
+  if ($amount != (int) $notification->getAmount()) {
+    $params = array(
+      'order_id' => $order->order_id,
+      'order_total' => $amount,
+      'notification_total' => $notification->getAmount(),
+    );
+    watchdog('kkb_epay', 'Commerce order total and actual amount payed via Epay differ. Order ID: @order_id, order total: @order_total, Epay notification total: @notification_total', $params, WATCHDOG_WARNING);
+    $amount = $notification->getAmount();
+  }
+
+  $transaction = commerce_payment_transaction_new('kkb_epay_commerce', $order->order_id);
+  $transaction->instance_id = $payment_method['instance_id'];
+  $transaction->remote_id = $notification->getReference();
+  $transaction->message = 'Your payment has been successfully processed.';
+  $transaction->amount = $amount;
+  $transaction->currency_code = $currency_code;
+  $transaction->status = COMMERSE_PAYMENT_STATUS_SUCCESS;
+  $transaction->remote_status = COMMERSE_PAYMENT_STATUS_SUCCESS;
+  $transaction->payload['aproval_code'] = $notification->getApprovalCode();
+  $transaction->payload['reference'] = $notification->getReference();
+
+  commerce_payment_transaction_save($transaction);
 }
