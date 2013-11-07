@@ -54,6 +54,12 @@ function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_m
   $kkb_order->addItem(new KkbEpay_OrderItem($order_item_name, $amount));
 
   $form = kkb_epay_billing_statement($form, $form_state, $kkb_order, $user);
+
+  $key = $order->data['payment_redirect_key'];
+  $url = url('checkout/' . $order->order_id . '/payment/return/' . $key, array('absolute' => TRUE));
+  $form['BackLink']['#value'] = $url;
+  $form['FailureBackLink']['#value'] = $url;
+
   return $form;
 }
 
@@ -82,30 +88,6 @@ function kkb_epay_commerce_redirect_form_validate($order, $payment_method) {
  */
 function kkb_epay_commerce_redirect_form_submit($order, $payment_method) {
   drupal_set_message(t('Thank you, your payment was successfully accepted.'));
-}
-
-/**
- * Implements hook_kkb_epay_success_page().
- */
-function kkb_epay_commerce_kkb_epay_success_page($id) {
-  global $user;
-
-  if ($id && ($order = commerce_order_load(intval($id))) && $order->uid == $user->uid) {
-    $key = $order->data['payment_redirect_key'];
-    drupal_goto('checkout/' . $order->order_id . '/payment/return/' . $key);
-  }
-}
-
-/**
- * Implements hook_kkb_epay_failure_page().
- */
-function kkb_epay_commerce_kkb_epay_failure_page($id) {
-  global $user;
-
-  if ($id && ($order = commerce_order_load(intval($id))) && $order->uid == $user->uid) {
-    $key = $order->data['payment_redirect_key'];
-    drupal_goto('checkout/' . $order->order_id . '/payment/return/' . $key);
-  }
 }
 
 /**
