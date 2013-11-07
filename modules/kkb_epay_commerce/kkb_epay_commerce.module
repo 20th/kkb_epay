@@ -55,7 +55,7 @@ function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_m
     drupal_goto(commerce_checkout_order_uri($order));
   }
 
-  $order_item_name = t('Order #@order_id on @sitename', array('@order_id' => $order->id, '@sitename' => variable_get('site_name')));
+  $order_item_name = t('Order #@order_id on @sitename', array('@order_id' => $order->order_id, '@sitename' => variable_get('site_name')));
   $amount = $order->commerce_order_total['und'][0]['amount'];
 
   $kkb_order = new KkbEpay_Order($order->order_id);
@@ -79,7 +79,7 @@ function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_m
  * checkout process.
  */
 function kkb_epay_commerce_redirect_form_validate($order, $payment_method) {
-  $is_payed = ($balance = commerce_payment_order_balance($order)) && $balance->amount == 0;
+  $is_payed = ($balance = commerce_payment_order_balance($order)) && intval($balance['amount']) == 0;
 
   if (!$is_payed) {
     $warning = t('Unfortunately, the processing center has not yet send us a confirmation of your payment. This may happen because of some technical problems. Please inform the site administrator.');
