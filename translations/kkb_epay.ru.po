@@ -331,11 +331,11 @@ msgstr ""
 
 #: modules/kkb_epay_commerce/kkb_epay_commerce.module:66
 msgid ""
-"Unfortunately, the processing center has not yet send us a confirmation of "
+"Unfortunately, the processing center did not send a confirmation of "
 "your payment. This may happen because of some technical problems. Please "
 "inform the site administrator."
 msgstr ""
-"К сожалению, процессинговый центр ещё не прислал подтверждение о вашем "
+"К сожалению, процессинговый центр не предоставил подтверждение о вашем "
 "платеже. Это могло случиться из-за технических неполадок. Пожалуйста, "
 "сообщите об этом администратору сайта."
 
