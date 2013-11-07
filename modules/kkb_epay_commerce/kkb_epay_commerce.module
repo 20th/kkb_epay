@@ -58,23 +58,41 @@ function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_m
 }
 
 /**
+ * Implements CALLBACK_commerce_payment_method_redirect_form_validate().
+ *
+ * Checks that the order is fully paid to decide the next action in the
+ * checkout process.
+ */
+function kkb_epay_commerce_redirect_form_validate($order, $payment_method) {
+  $is_payed = ($balance = commerce_payment_order_balance($order)) && $balance->amount == 0;
+
+  if (!$is_payed) {
+    $warning = t('Unfortunately, the processing center has not yet send us a confirmation of your payment. This may happen because of some technical problems. Please inform the site administrator.');
+    drupal_set_message($warning, 'warning');
+
+    $alert = 'A user has continued order checkout without confirmation of successful payment from Epay gateway. It is possible that the user has never payed the order and directly returned to the success landing page. Order ID: %order_id';
+    watchdog('kkb_epay', $alert, array('%order_id' => $order->order_id), WATCHDOG_ALERT, 'admin/commerce/orders/' . $order->order_id);
+  }
+
+  return $is_payed;
+}
+
+/**
+ * Implements CALLBACK_commerce_payment_method_redirect_form_submit().
+ */
+function kkb_epay_commerce_redirect_form_submit($order, $payment_method) {
+  drupal_set_message(t('Thank you, your payment was successfully accepted.'));
+}
+
+/**
  * Implements hook_kkb_epay_success_page().
  */
 function kkb_epay_commerce_kkb_epay_success_page($id) {
   global $user;
 
   if ($id && ($order = commerce_order_load(intval($id))) && $order->uid == $user->uid) {
-    drupal_set_message(t('Thank you, you payment was successfully accepted.'));
-    commerce_payment_redirect_pane_next_page($order);
-
-    if (!($balance = commerce_payment_order_balance($order)) || $balance->amount != 0) {
-      $warning = t('Unfortunately, the processing center has not yet send us a confirmation of your payment. This may happen because of some technical problems. Please inform the site administrator.');
-      drupal_set_message($warning, 'warning');
-
-      $alert = 'A user has finished order checkout without confirmation of successful payment from Epay gateway. It is possible that the user has never payed the order and directly returned to the success landing page. Order ID: %order_id';
-      watchdog('kkb_epay', $alert, array('%order_id' => $order->order_id), WATCHDOG_ALERT, 'admin/commerce/orders/' . $order->order_id);
-    }
-    drupal_goto('checkout/' . $order->order_id);
+    $key = $order->data['payment_redirect_key'];
+    drupal_goto('checkout/' . $order->order_id . '/payment/return/' . $key);
   }
 }
 
@@ -85,9 +103,8 @@ function kkb_epay_commerce_kkb_epay_failure_page($id) {
   global $user;
 
   if ($id && ($order = commerce_order_load(intval($id))) && $order->uid == $user->uid) {
-    drupal_set_message(t('Unfortunately your payment was not completed.'));
-    commerce_payment_redirect_pane_previous_page($order);
-    drupal_goto('checkout/' . $order->order_id);
+    $key = $order->data['payment_redirect_key'];
+    drupal_goto('checkout/' . $order->order_id . '/payment/return/' . $key);
   }
 }
 

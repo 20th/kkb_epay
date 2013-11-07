@@ -1,6 +1,8 @@
 #
 # KKB Epay translation package.
+#
 # Copyright (C) 2012, Serik Yeleussizov <s.yeleussizov@gmail.com>
+# Copyright (C) 2013, Victor Nikulshin
 #
 # This file is part of KKB Epay.
 #
@@ -339,11 +341,11 @@ msgstr ""
 
 #: modules/kkb_epay_commerce/kkb_epay_commerce.module:69
 msgid ""
-"A user has finished order checkout without confirmation of successful "
+"A user has continued order checkout without confirmation of successful "
 "payment from Epay gateway. It is possible that the user has never payed "
 "the order and directly returned to the success landing page. "
 "Order ID: %order_id"
 msgstr ""
-"Пользователь завершил оформление заказа без подтверждения успешной обработки "
+"Пользователь продолжил оформление заказа без подтверждения успешной обработки "
 "платежа в Epay. Возможно, что пользователь вообще не оплатил заказ и "
 "напрямую вернулся на страницу подтверждения заказа. Номер заказа: %order_id"

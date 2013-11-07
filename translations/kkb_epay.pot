@@ -338,7 +338,7 @@ msgstr ""
 
 #: modules/kkb_epay_commerce/kkb_epay_commerce.module:69
 msgid ""
-"A user has finished order checkout without confirmation of successful "
+"A user has continued order checkout without confirmation of successful "
 "payment from Epay gateway. It is possible that the user has never payed "
 "the order and directly returned to the success landing page. "
 "Order ID: %order_id"
