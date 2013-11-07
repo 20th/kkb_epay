@@ -349,3 +349,12 @@ msgstr ""
 "Пользователь продолжил оформление заказа без подтверждения успешной обработки "
 "платежа в Epay. Возможно, что пользователь вообще не оплатил заказ и "
 "напрямую вернулся на страницу подтверждения заказа. Номер заказа: %order_id"
+
+#: modules/kkb_epay_commerce/kkb_epay_commerce.module:51
+msgid ""
+"Unfortunately, you cannot use Epay processing center to pay for this "
+"order. Epay accepts orders only in Tenge. The currency of your order "
+"is %currency."
+msgstr ""
+"Сожалеем, но этот заказ невозможно оплатить при помощи Epay. Epay принимает "
+"платежи только в тенге. Валюта вашего заказа: %currency."

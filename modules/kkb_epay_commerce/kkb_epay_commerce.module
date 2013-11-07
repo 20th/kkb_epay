@@ -46,6 +46,15 @@ function kkb_epay_commerce_commerce_payment_method_info() {
 function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_method) {
   global $user;
 
+  $currency = $order->commerce_order_total['und'][0]['currency_code'];
+  if ($currency != 'KZT') {
+    $warning = t('Unfortunately, you cannot use Epay processing center to pay for this order. Epay accepts orders only in Tenge. The currency of your order is %currency.', array('%currency' => $currency));
+    drupal_set_message($warning, 'error');
+
+    commerce_payment_redirect_pane_previous_page($order);
+    drupal_goto(commerce_checkout_order_uri($order));
+  }
+
   $order_item_name = t('Order #@order_id on @sitename', array('@order_id' => $order->id, '@sitename' => variable_get('site_name')));
   $amount = $order->commerce_order_total['und'][0]['amount'];
 

@@ -343,3 +343,10 @@ msgid ""
 "the order and directly returned to the success landing page. "
 "Order ID: %order_id"
 msgstr ""
+
+#: modules/kkb_epay_commerce/kkb_epay_commerce.module:51
+msgid ""
+"Unfortunately, you cannot use KKB Epay processing center to pay for this "
+"order. Epay accepts orders only in Tenge. The currency of your order "
+"is %currency."
+msgstr ""
