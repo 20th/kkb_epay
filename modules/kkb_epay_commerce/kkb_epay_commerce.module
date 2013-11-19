@@ -57,6 +57,7 @@ function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_m
 
   $order_item_name = t('Order #@order_id on @sitename', array('@order_id' => $order->order_id, '@sitename' => variable_get('site_name')));
   $amount = $order->commerce_order_total['und'][0]['amount'];
+  $amount = commerce_currency_amount_to_decimal($amount, $currency);
 
   $kkb_order = new KkbEpay_Order($order->order_id);
   $kkb_order->setTengeAmount($amount);
@@ -131,14 +132,16 @@ function kkb_epay_uc_kkb_epay_payment(KkbEpay_PaymentNotification $notification)
   $amount = $order->commerce_order_total['und'][0]['amount'];
   $currency = $order->commerce_order_total['und'][0]['currency_code'];
 
-  if ($amount != (int) $notification->getAmount()) {
+  $notification_amount_converted = commerce_currency_decimal_to_amount($notification->getAmount(), $currency);
+
+  if ($amount != $notification_amount_converted) {
     $params = array(
       'order_id' => $order->order_id,
-      'order_total' => $amount,
+      'order_total' => commerce_currency_amount_to_decimal($amount, $currency),
       'notification_total' => $notification->getAmount(),
     );
     watchdog('kkb_epay', 'Commerce order total and actual amount payed via Epay differ. Order ID: @order_id, order total: @order_total, Epay notification total: @notification_total', $params, WATCHDOG_WARNING);
-    $amount = $notification->getAmount();
+    $amount = $notification_amount_converted;
   }
 
   $transaction = commerce_payment_transaction_new('kkb_epay_commerce', $order->order_id);
