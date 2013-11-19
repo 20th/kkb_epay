@@ -103,7 +103,7 @@ function kkb_epay_commerce_redirect_form_submit($order, $payment_method) {
 /**
  * Implements hook_kkb_epay_payment().
  */
-function kkb_epay_uc_kkb_epay_payment(KkbEpay_PaymentNotification $notification) {
+function kkb_epay_commerce_kkb_epay_payment(KkbEpay_PaymentNotification $notification) {
   $method_id = 'kkb_epay_payment';
 
   $order = commerce_order_load($notification->getOrderId());
