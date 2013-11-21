@@ -85,7 +85,8 @@ function kkb_epay_callback_post_success() {
  * Menu page callback. Handles failure response from the processing center.
  *
  * @todo
- *   Callback must be implemented.
+ *   Callback must be implemented once the processing center actually starts to
+ *   send failure responses. As for now it is completely unused.
  */
 function kkb_epay_callback_post_failure() {
   module_load_include('inc', 'kkb_epay', 'includes/billing');
