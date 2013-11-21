@@ -99,3 +99,30 @@ function kkb_epay_uninstall() {
   variable_del('kkb_epay_private_key_debug');
   variable_del('kkb_epay_debug_status');
 }
+
+/**
+ * Implements hook_schema().
+ */
+function kkb_epay_schema() {
+  $tables = array();
+
+  $tables['kkb_epay_raw_success_posts'] = array(
+    'description' => 'Stores raw, not yet validated documents posted by the processing center.',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'posted_timestamp' => array(
+        'description' => 'The Unix timestamp when the document was received.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $tables;
+}
