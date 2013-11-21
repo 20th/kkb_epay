@@ -71,7 +71,7 @@ function kkb_epay_callback_post_success() {
     echo '0';
     drupal_exit();
   }
-  $document = substr($_POST['response'], 0, 2000);
+  $document = substr($_POST['response'], 0, 5000);
   if (kkb_epay_bank_response_document_validate($document)) {
     $notification = kkb_epay_bank_response_document_parse($document);
 
