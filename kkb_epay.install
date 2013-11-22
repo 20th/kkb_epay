@@ -186,3 +186,92 @@ function kkb_epay_schema() {
 
   return $tables;
 }
+
+/**
+ * Implements hook_update_N().
+ */
+function kkb_epay_update_7101() {
+  $tables = array();
+
+  $tables['kkb_epay_raw_success_posts'] = array(
+    'description' => 'Stores raw, not yet validated documents posted by the processing center.',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'posted_timestamp' => array(
+        'description' => 'The Unix timestamp of the time when the document was received.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'default' => 0,
+      ),
+      'remote_ip' => array(
+        'description' => 'An IP address that originated the request.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+        'default' => NULL,
+      ),
+      'document' => array(
+        'description' => 'A raw posted document as a string.',
+        'type' => 'blob',
+        'size' => 'normal',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  $tables['kkb_epay_validated_documents'] = array(
+    'description' => 'Stores validated and parsed documents posted by the processing center.',
+    'fields' => array(
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'order_id' => array(
+        'description' => 'ID of an order that has been payed.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'timestamp' => array(
+        'description' => 'The Unix timestamp of the time when the document was received.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'default' => 0,
+      ),
+      'amount' => array(
+        'description' => 'The payment amount.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'reference' => array(
+        'description' => 'Transaction reference number.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+      'approval_code' => array(
+        'description' => 'Transaction approval code.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+    'indexes' => array(
+      'reference' => array('reference'),
+    ),
+  );
+
+  foreach ($tables as $name => $table) {
+    db_create_table($name, $table);
+  }
+}
