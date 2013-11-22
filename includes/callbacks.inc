@@ -78,7 +78,7 @@ function kkb_epay_callback_post_success() {
     'remote_id' => ip_address(),
     'document' => $document
   );
-  drupal_write_record('kkb_epay_raw_success_posts');
+  drupal_write_record('kkb_epay_raw_success_posts', $record);
 
   if (kkb_epay_bank_response_document_validate($document)) {
     $notification = kkb_epay_bank_response_document_parse($document);
