@@ -150,8 +150,8 @@ function kkb_epay_commerce_kkb_epay_payment(KkbEpay_PaymentNotification $notific
   $transaction->message = 'Your payment has been successfully processed.';
   $transaction->amount = $amount;
   $transaction->currency_code = $currency_code;
-  $transaction->status = COMMERSE_PAYMENT_STATUS_SUCCESS;
-  $transaction->remote_status = COMMERSE_PAYMENT_STATUS_SUCCESS;
+  $transaction->status = COMMERCE_PAYMENT_STATUS_SUCCESS;
+  $transaction->remote_status = COMMERCE_PAYMENT_STATUS_SUCCESS;
   $transaction->payload['aproval_code'] = $notification->getApprovalCode();
   $transaction->payload['reference'] = $notification->getReference();
 
