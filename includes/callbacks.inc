@@ -75,7 +75,7 @@ function kkb_epay_callback_post_success() {
 
   $record = (object) array(
     'posted_timestamp' => REQUEST_TIME,
-    'remote_id' => ip_address(),
+    'remote_ip' => ip_address(),
     'document' => $document
   );
   drupal_write_record('kkb_epay_raw_success_posts', $record);
