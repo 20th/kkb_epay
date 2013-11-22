@@ -83,6 +83,10 @@ function kkb_epay_callback_post_success() {
   if (kkb_epay_bank_response_document_validate($document)) {
     $notification = kkb_epay_bank_response_document_parse($document);
 
+    // TODO
+    // Use 'kkb_epay_validated_documents' table to add protection from replay
+    // attacks.
+
     $record = (object) array(
       'order_id' => $notification->getOrderId(),
       'timestamp' => $notification->getTimestamp(),
