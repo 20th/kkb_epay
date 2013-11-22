@@ -72,8 +72,25 @@ function kkb_epay_callback_post_success() {
     drupal_exit();
   }
   $document = substr($_POST['response'], 0, 5000);
+
+  $record = (object) array(
+    'posted_timestamp' => REQUEST_TIME,
+    'remote_id' => ip_address(),
+    'document' => $document
+  );
+  drupal_write_record('kkb_epay_raw_success_posts');
+
   if (kkb_epay_bank_response_document_validate($document)) {
     $notification = kkb_epay_bank_response_document_parse($document);
+
+    $record = (object) array(
+      'order_id' => $notification->getOrderId(),
+      'timestamp' => $notification->getTimestamp(),
+      'amount' => $notification->getAmount(),
+      'reference' => $notification->getReference(),
+      'approval_code' => $notification->getApprovalCode(),
+    );
+    drupal_write_record('kkb_epay_validated_documents', $record);
 
     module_invoke_all('kkb_epay_raw_success_response', $document);
     module_invoke_all('kkb_epay_payment', $notification);
