@@ -115,7 +115,7 @@ function kkb_epay_schema() {
         'not null' => TRUE,
       ),
       'posted_timestamp' => array(
-        'description' => 'The Unix timestamp when the document was received.',
+        'description' => 'The Unix timestamp of the time when the document was received.',
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0,
