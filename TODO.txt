@@ -9,12 +9,12 @@ Planned features and improvements:
 6.  Add Kazakh translation;
 7.  Query 'payments monitor' to check orders statuses;
 8.  Create interface for confirming and canceling payments;
-9.  Save all raw server responses into logs or database;
+9.  <del>Save all raw server responses into logs or database</del>;
 10. Log every 'epay/post/success' page request;
 11. Send user's prefered laguage (rus|eng) to the payment page;
 12. <del>Write API usage examples</del>;
 13. <del>Create kkb_epay_ubercart module</del>;
-14. Create kkb_epay_commerce module;
+14. <del>Create kkb_epay_commerce module</del>;
 15. Add module description;
 16. <del>Add licencing and copyright information</del>;
 17. Logging is not verbose enough;
