@@ -63,7 +63,8 @@ function kkb_epay_commerce_redirect_form($form, &$form_state, $order, $payment_m
   $kkb_order->setTengeAmount($amount);
   $kkb_order->addItem(new KkbEpay_OrderItem($order_item_name, $amount));
 
-  $form = kkb_epay_billing_statement($form, $form_state, $kkb_order, $user);
+  $email = !empty($order->mail) ? $order->mail : NULL;
+  $form = kkb_epay_billing_statement($form, $form_state, $kkb_order, $user, $email);
 
   $key = $order->data['payment_redirect_key'];
   $url = url('checkout/' . $order->order_id . '/payment/return/' . $key, array('absolute' => TRUE));

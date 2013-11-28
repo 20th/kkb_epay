@@ -84,7 +84,8 @@ function kkb_epay_uc_redirect($form, &$form_state, stdClass $uc_order) {
     $epay_order->addItem(new KkbEpay_OrderItem($i['title'], $i['amount']));
   }
 
-  $statement = drupal_get_form('kkb_epay_billing_statement', $epay_order, $account);
+  $email = !empty($uc_order->primary_email) ? $uc_order->primary_email : NULL;
+  $statement = drupal_get_form('kkb_epay_billing_statement', $epay_order, $account, $email);
 
   // Add unique token for better security.
   $url = url('epay/back/success/' . $uc_order->order_id, array(
