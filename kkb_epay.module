@@ -43,13 +43,16 @@
  *   Account of a user who receives the billing statement. Account is used to
  *   get user's email and preferred language.
  *
+ * @param string $email
+ *   An optional email that will be used instead of user's default address.
+ *
  * @todo
  *   Set interface language to user's preferred language.
  *
  * @return array
  *   Complete definition of a billing form in as Drupal's renderable array.
  */
-function kkb_epay_billing_statement($form, &$form_state, KkbEpay_Order $order, $account) {
+function kkb_epay_billing_statement($form, &$form_state, KkbEpay_Order $order, $account, $email = NULL) {
   module_load_include('inc', 'kkb_epay', 'includes/billing');
 
   $form['#action']  = kkb_epay_processing_gateway_url();
@@ -63,7 +66,7 @@ function kkb_epay_billing_statement($form, &$form_state, KkbEpay_Order $order, $
   );
   $form['email'] = array(
     '#type' => 'hidden',
-    '#value' => $account->mail,
+    '#value' => $email ? $email : (isset($account->mail) ? $account->mail : ''),
   );
   $form['BackLink'] = array(
     '#type' => 'hidden',
