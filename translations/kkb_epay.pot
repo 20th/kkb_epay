@@ -325,7 +325,7 @@ msgstr ""
 
 #: includes/classes/KkbEpay_Key.php:139
 msgid ""
-"Certificate ID does not match expected format. It must be exactly 10 "
+"Certificate ID does not match expected format. It must be 8-10 "
 "characters long and consist of hexadecimal digits."
 msgstr ""
 
