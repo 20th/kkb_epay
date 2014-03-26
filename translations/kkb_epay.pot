@@ -350,3 +350,9 @@ msgid ""
 "order. Epay accepts orders only in Tenge. The currency of your order "
 "is %currency."
 msgstr ""
+
+#: kkb_epay.install:62
+msgid ""
+"Private key loaded, but cannot be opened. Please check that the key "
+"password is correct."
+msgstr ""

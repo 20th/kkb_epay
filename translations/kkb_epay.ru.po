@@ -358,3 +358,11 @@ msgid ""
 msgstr ""
 "Сожалеем, но этот заказ невозможно оплатить при помощи Epay. Epay принимает "
 "платежи только в тенге. Валюта вашего заказа: %currency."
+
+#: kkb_epay.install:62
+msgid ""
+"Private key loaded, but cannot be opened. Please check that the key "
+"password is correct."
+msgstr ""
+"Закрытый ключ загружен, но не может быть открыт. Проверьте, что вы ввели "
+"правильный пароль."

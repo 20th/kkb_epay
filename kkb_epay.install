@@ -38,21 +38,34 @@ function kkb_epay_requirements($phase) {
       'value' => NULL,
     );
   }
-
-  if ($phase == 'runtime') {
+  elseif ($phase == 'runtime') {
     $key_loader = new KkbEpay_DrupalKeyLoader();
     $key_loader->setDebug(FALSE);
 
     if ($key_loader->validateKey()) {
-      $requirements['kkb_epay_private_key'] = array(
-        'title' => $t('KKB Epay private key'),
-        'description' => $t(
-          'Private key loaded. Merchant ID is %id.',
-          array('%id' => $key_loader->getKey()->getMerchantId())
-        ),
-        'severity' => REQUIREMENT_OK,
-        'value' => NULL,
-      );
+      $key = $key_loader->getKey();
+      if ($resource = openssl_get_privatekey($key->getKey(), $key->getPassword())) {
+        $requirements['kkb_epay_private_key'] = array(
+          'title' => $t('KKB Epay private key'),
+          'description' => $t(
+            'Private key loaded. Merchant ID is %id.',
+            array('%id' => $key_loader->getKey()->getMerchantId())
+          ),
+          'severity' => REQUIREMENT_OK,
+          'value' => NULL,
+        );
+      }
+      else {
+        $requirements['kkb_epay_private_key'] = array(
+          'title' => $t('KKB Epay private key'),
+          'description' => $t(
+            'Private key loaded, but cannot be opened. Please check that the key password is correct.',
+            array()
+          ),
+          'severity' => REQUIREMENT_ERROR,
+          'value' => NULL,
+        );
+      }
     }
     else {
       $requirements['kkb_epay_private_key'] = array(
