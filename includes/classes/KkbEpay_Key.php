@@ -124,8 +124,8 @@ final class KkbEpay_Key {
     if (strlen($name) > 255) {
       throw new KkbEpay_KeyException('Merchant name is too long. It cannot be longer than 255 characters.');
     }
-    if (!preg_match('/^[A-Za-z0-9 _-]{1,255}$/', $name)) {
-      throw new KkbEpay_KeyException('Merchant name does not match expected format. It can consist only of English letters, digits, \'-\', \'_\' and space.');
+    if (!preg_match('/^[A-Za-z0-9 _.-]{1,255}$/', $name)) {
+      throw new KkbEpay_KeyException('Merchant name does not match expected format. It can consist only of English letters, digits, a dot, \'-\', \'_\' and space.');
     }
     $this->merchant_name = $name;
     return $this;

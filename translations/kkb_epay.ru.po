@@ -312,10 +312,10 @@ msgstr "Имя продавца слишком длинное. Оно не мо�
 #: includes/classes/KkbEpay_Key.php:128
 msgid ""
 "Merchant name does not match expected format. It can consist only of English "
-"letters, digits, '-', '_' and space."
+"letters, digits, a dot, '-', '_' and space."
 msgstr ""
 "Имя продавца имеет неверный формат. Оно может состоять только из букв "
-"английского алфавита, цифр, знаков '-' и '_', и пробелов."
+"английского алфавита, цифр, точки, знаков '-' и '_', и пробелов."
 
 #: includes/classes/KkbEpay_Key.php:136
 msgid "Certificate ID must be a string."

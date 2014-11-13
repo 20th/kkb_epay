@@ -316,7 +316,7 @@ msgstr ""
 #: includes/classes/KkbEpay_Key.php:128
 msgid ""
 "Merchant name does not match expected format. It can consist only of English "
-"letters, digits, '-', '_' and space."
+"letters, digits, a dot, '-', '_' and space."
 msgstr ""
 
 #: includes/classes/KkbEpay_Key.php:136
