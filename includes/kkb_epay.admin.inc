@@ -179,6 +179,13 @@ function kkb_epay_admin_private_key_form_validate($form, &$form_state) {
   if (!$key->isValid()) {
     form_set_error('key_data', t('There is something wrong with this key. Please check that the provided information is correct.'));
   }
+
+  try {
+    $key->open();
+  }
+  catch (KkbEpay_KeyException $ex) {
+    form_set_error("key_data][$f", t($ex->getMessage()));
+  }
 }
 
 /**
