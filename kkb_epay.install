@@ -44,22 +44,25 @@ function kkb_epay_requirements($phase) {
 
     if ($key_loader->validateKey()) {
       $key = $key_loader->getKey();
-      if ($resource = openssl_get_privatekey($key->getKey(), $key->getPassword())) {
+
+      try {
+        $key->open();
+
         $requirements['kkb_epay_private_key'] = array(
           'title' => $t('KKB Epay private key'),
           'description' => $t(
             'Private key loaded. Merchant ID is %id.',
-            array('%id' => $key_loader->getKey()->getMerchantId())
+            array('%id' => $key->getMerchantId())
           ),
           'severity' => REQUIREMENT_OK,
           'value' => NULL,
         );
       }
-      else {
+      catch (KkbEpay_KeyException $e) {
         $requirements['kkb_epay_private_key'] = array(
           'title' => $t('KKB Epay private key'),
           'description' => $t(
-            'Private key loaded, but cannot be opened. Please check that the key password is correct.',
+            $e->getMessage(),
             array()
           ),
           'severity' => REQUIREMENT_ERROR,
