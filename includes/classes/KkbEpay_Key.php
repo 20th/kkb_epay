@@ -78,23 +78,15 @@ final class KkbEpay_Key {
     if (!is_string($key)) {
       throw new KkbEpay_KeyException('Key must be a string.');
     }
-    if (FALSE === $start = strpos($key, '-----BEGIN RSA PRIVATE KEY-----')) {
+    if (!preg_match('/-+BEGIN.+KEY-+/', $key)) {
       throw new KkbEpay_KeyException('Key is not valid, it does not contain a correct RSA key declaration.');
     }
-    if (FALSE === $end = strpos($key, '-----END RSA PRIVATE KEY-----')) {
+    if (!preg_match('/-+END.+KEY-+/', $key)) {
       throw new KkbEpay_KeyException('Key is not valid, it does not contain a correct RSA key declaration.');
-    }
-    if ($end < $start) {
-      throw new KkbEpay_KeyException('Key is not valid.');
-    }
-
-    $key = substr($key, $start);
-    $key = substr($key, 0, $end + 29);
-    if (empty($key)) {
-      throw new KkbEpay_KeyException('Key is not valid.');
     }
 
     $this->key = trim($key);
+
     return $this;
   }
 
