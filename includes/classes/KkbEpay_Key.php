@@ -80,7 +80,7 @@ final class KkbEpay_Key {
     if (empty($resource)) {
       $error = 'Provided key could not be opened by openssl_get_privatekey().';
       $previous = new KkbEpay_OpenSSLException(strval(openssl_error_string()));
-      throw new KkbEpay_Exception($error, 0, $previous);
+      throw new KkbEpay_KeyException($error, 0, $previous);
     }
 
     return $resource;
