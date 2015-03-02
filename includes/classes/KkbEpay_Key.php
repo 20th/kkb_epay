@@ -74,6 +74,18 @@ final class KkbEpay_Key {
     return TRUE;
   }
 
+  public function open() {
+    $resource = openssl_get_privatekey($this->getKey(), $this->getPassword());
+
+    if (empty($resource)) {
+      $error = 'Provided key could not be opened by openssl_get_privatekey().';
+      $previous = new KkbEpay_OpenSSLException(strval(openssl_error_string()));
+      throw new KkbEpay_Exception($error, 0, $previous);
+    }
+
+    return $resource;
+  }
+
   public function setKey($key) {
     if (!is_string($key)) {
       throw new KkbEpay_KeyException('Key must be a string.');

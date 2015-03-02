@@ -33,14 +33,7 @@ final class KkbEpay_Sign {
       throw new KkbEpay_Exception('Provided key is not valid.');
     }
 
-    $resource = openssl_get_privatekey($key->getKey(), $key->getPassword());
-    if (empty($resource)) {
-      $error = 'Provided key could not be opened by openssl_get_privatekey().';
-      $previous = new KkbEpay_OpenSSLException(strval(openssl_error_string()));
-      throw new KkbEpay_Exception($error, 0, $previous);
-    }
-
-    $this->key = $resource;
+    $this->key = $key->open();
   }
 
   /**
